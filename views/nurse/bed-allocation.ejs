@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../nurse/css/bed.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+    <div id="content">
+        <header>
+            <div class="header-list">
+            <button class="header-list-item"><span class=" fa fa-plus"></span> New Treatment</button>
+            <button class="header-list-item"><span class="fa fa-file"></span> Records</button>
+            <button class="header-list-item"><span class="fa fa-envelope"> Messages</span></button>
+        </div>
+        <div class="search-area">
+            <div class="search-container">
+          <input type="search" class="search" placeholder="search activity"> &nbsp;<span class="fa fa-search"></span>
+        </div>
+        </div>
+        <div>
+            <div class="header-section-3">
+              
+               
+                <div class="fa fa-sun icon-3" title="Settings"></div>
+                <div class="fa fa-bell icon-3" title="All Notifications"></div>
+                <div class="drop-down">
+                    <div class="fa fa-user-circle icon-3 drop-btn">
+                        <div class="dropdown-content">
+                            <a href="profile.html"><span class="fa fa-user-circle"></span>&nbsp; &nbsp; Profile</a>
+                            <a href="profile.html"><span class="fa fa-lock"></span>&nbsp; &nbsp;Change Password</a>
+                            <a href="#"><span class="fa fa-key">&nbsp; &nbsp;Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        </header>
+            <%- include('partials/side-bar.ejs') %>
+        <main>
+            <%- include('partials/notification-bar.ejs') %>
+          <div class="tabs">
+                <div role="tablist" aria-label="bed-allocations" class="tabs-elements">
+                  <button role="tab" aria-selected="false" id="bed-allocation"><i class="fa fa-cross">&nbsp; Add Bed Allocatment</i></button>
+                  <button role="tab" aria-selected="false" id="add-bed"><i class="fa fa-cross">&nbsp; Add Bed</i></button>
+                </div>
+               <div role="tabpanel" aria-labelledby="bed-list" class="tab-panel">
+                   <div class="search-sort-sections">
+              <div class="show-section">
+               <span>Show <input type="number" value="10"></span> 
+               <button>Excel</button>
+               <button>PDF</button>
+               <button>copy</button>
+
+              </div>
+              <div>
+
+              </div>
+              <div>
+                  <label>Search: </label><input type="search" id="search">
+              </div>
+
+          </div>
+       </div>
+            <div role="tabpanel" aria-labelledby="bed-allocation">
+                <div>
+                <form class="form-section" name="form">
+                    <div>
+                        <h3>Personal Details</h3>
+                    <label>Card Number:</label><br>
+                    <input type="text" name="cardNumber" placeholder="Enter Card Number" value="<%= patient[0].cardNumber %>" ><br>
+                    <label>Patient Name:</label><br>
+                    <input type="text" name="patientName" placeholder="patient name here" value="<%= patient[0].firstName %> <%= patient[0].middleName %> <%= patient[0].lastName %>" ><br>
+                    <label>Gender:</label><br>
+                    <input type="text" name ="gender" placeholder="Enter Gender here" value="<%- patient[0].gender %>" ><br>
+                     <label>Telephone:</label><br>
+                    <input type="text" name="phoneNumber" placeholder="Enter phone number here" value="<%= patient[0].phoneNumber %>" ><br>
+                    <label>Address:</label><br>
+                    <input type="text" name="address"  placeholder="Enter Address  here" value="<%= patient[0].address %>"><br>
+                    </div>
+                    <div>
+                         <h3>Allocation Details</h3>
+                     <label>Select Ward:<span style="color: red">*</span></label><br>
+                    <select name="wardNumber" id="ward">
+                        <option value="#">Select Ward</option>
+                        <% wards.forEach(ward => {%>
+                            <option value="<%= ward.number %>">Ward <%= ward.number%></option>
+                         <%})%>
+                    </select><br>
+                     <label>Room Number: <span style="color: red">*</span></label><br>
+                    <select name="roomNumber" id="rooms">
+                    </select><br>
+                     <label>Bed Number: <span style="color: red">*</span></label><br>
+                    <select name="bedNumber" id="bedSpace">
+                    </select><br>
+                        <input type="submit" id="submit" value="Allocate" class="allocate-btn">
+                </div>
+                    </form>
+                </div>
+            </div>
+             <div role="tabpanel" aria-labelledby="add-bed" hidden="hidden">
+                <h1> Coming soon!!!!!</h1>
+            </div>
+          </div>
+
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script type="text/javascript" src="../nurse/js/bed.js"></script>
+    <script type="text/javascript" src="../nurse/js/bed-allocation.js"></script>
+    
+</body>
+</html>

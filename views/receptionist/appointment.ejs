@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMMS</title>
+    <link rel="stylesheet" href="../receptionist/css/dashbaord.css">
+    <link rel="stylesheet" href="../receptionist/css//header.css" type="text/css">
+    <link rel="stylesheet" href="../receptionist/css/apoint.css">
+    <link rel="stylesheet" type="text/css"
+    href="../fontawesome-free-5.12.0-web/css/all.css">
+</head>
+<body onload="display();">
+ <!-- Side Bar Begins Here -->
+ <%- include('partials/side-bar') %>
+ <!-- End of side Bar -->
+<!-- Header begins here -->
+<header>
+<div class="search">
+    <h2 class="h2">Haske Clinic And Merternity Management systems</h2>
+</div>
+<div class="user">
+    <a href="notification.html" class="notify">
+        <i class="fa fa-bell bell" ></i>
+        <span class="round">3</span>
+    </a>
+    <a href="">
+        <span id='name'style="display: inline-block; padding-right: 8px; font-weight:
+     bold; color: rgb(3, 45, 87);">Dorathy</span>
+        <div class="userProfile"></div>
+        <i class="fa fa-caret-down"></i>
+    </a>
+
+</div>
+</header>
+<!-- header ends here -->
+<!-- Main start here-->
+<section class="mainSection">
+    <%- include('partials/notification-bar') %>
+    <h3 style="color: rgb(3, 45, 87); font-size: 32px;">DashBoard | Appointment</h3>
+    <!-- <p id="name" style="padding-top:20px; font-size: 18px; color:rgb(209, 209, 209);">Welcome Mrs Dorathy </p> -->
+    <div style="background: white; margin: 25px 0px 0px -60px ; padding:  30px 50px 50px 50px;"> 
+        <div class="tabs">
+            <div role ="tablist" aria-label="Appointments">
+              <button role="tab" aria-selected="true" id="Book">
+                  Book Appointment &nbsp; <i class="fa fa-book"></i>
+              </button>
+              <button role="tab" aria-selected="false" id="View">
+                  View Appointments  &nbsp; <i class="fa fa-eye"></i>
+              </button>
+              
+            </div> 
+            <div role="tabpanel" aria-labelledby="Book" >
+            <div class="PatientSearchHolder">
+                <form name="form">
+                <div class="apoint">
+                    <span>Doctor Specialization</span>
+                    <select name="doctorSpecialization" id="docSpec">
+                        <option value="" disabled>Select Specialization</option>
+                        <option value="dentist" > Dentist</option>
+                        <option value="dentist" >Ear,Nose, Throat specialis</option>
+                        <option value="dentist">Ear,Nose, Throat specialis</option>
+                        <option value="dentist">Ear,Nose, Throat specialis</option>
+                        <option value="dentist">Ear,Nose, Throat specialis</option>
+                    </select>
+                    <span>Doctors/Consultanancy Fees</span>
+                        <select name="to" id="doctor">
+                                <option value="">Select Doctor</option>
+                            <% doctors.forEach(doctor => {%>
+                                <option data-id="<%= doctor._id %>"><%= doctor.name %></option>
+                            <%})%>
+                    </select>
+                    <span>Patient ID</span>
+                    <input type="" class="d" name="cardNumber" placeholder="eg: 2020/08/00002" id="patientId">
+                <span>Patient Name</span>
+                <input type="text" class="d" name="name">
+                <button type="submit" class="pSearch" id="addAppointment">Submit</button>
+                </div>
+                </form>
+            </div> 
+            </div>
+            <div role="tabpanel" aria-labelledby="View" hidden>
+                <table id="appointments-table">
+                    <tr>
+                     <th>S/N</th>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Doctor Specialization</th>
+                    <th>Doctor Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>status</th>
+                    </tr>
+                    <% appointments.forEach( (appointment, index) => { %> 
+                    <tr>
+                        <% const d = new Date(appointment.createdAt) %>
+                        <% const m = (`0${d.getMonth() +1}`).slice(-2) %>
+                        <% const dy = (`0${d.getDate()}`).slice(-2) %>
+                        <% const y = d.getFullYear() %>
+                        <% const h = d.getHours() + 1 %>
+                        <% const min = d.getMinutes() + 1 %>
+                        <% const s = d.getSeconds() + 1 %>
+                        <td><%= index + 1 %></td>
+                        <td><%= appointment.cardNumber %></td>
+                        <td><%= appointment.name %></td>
+                        <td><%= appointment.doctorSpecialization %></td>
+                        <td><%= appointment.to %></td>
+                        <td><%= `${dy}/${m}/${y}` %></td>
+                        <td><%= `${h}:${min}:${s}` %></td>
+                        <td id="<%= appointment._id %>"><%= appointment.status2 %></td>
+                    </tr>
+                    <% }) %>
+                </table>
+            </div> 
+        </div>
+    </div>
+</section>
+<div style="position: fixed; bottom: 0; background: rgb(3, 45, 87);
+ margin-left: 250px; padding: 10px; color:white;width: 100%; font-size: 12px;"><p style="text-align: center;
+  padding-right: 400px;">©2020 
+ HCMMS All Rights Reserved
+    Prouldly Powered By AIS</p></div>
+    
+<!-- section Ends here -->
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="../receptionist/js/appoint.js"></script>
+</html>

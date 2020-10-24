@@ -1,0 +1,34 @@
+<div>
+    <h3 style="color: rgb(3, 45, 87); font-size: 28px; display: inline-block;">Dashboard</h3>
+    <!-- Notification start here -->
+    <a href="notification.html">
+    <div style="float: right; margin-right: 100px;">
+        <span class="note">Notifications </span>
+        <div style="display: flex;padding-right: 30px;">    
+        <div style="border-right: 2px solid rgb(3, 45, 87);">
+            <p class="pp" >Accepted Appointments</p>
+            <a href="" class="notify" style="margin: 10px;">
+                <i class="fa fa-bell bell"></i>
+                <span class="round" ><%= acceptedAppointments %></span>
+            </a>
+        </div>
+        <div style="border-right: 2px solid rgb(3, 45, 87);">
+            <p class="pp" >Laboratory</p>
+            <a href="" class="notify" style="margin: 10px;">
+                <i class="fa fa-bell bell"></i>
+                <span class="round" ><%= openedLabResults %></span>
+            </a>
+        </div>
+        <div style="border-right: 2px solid rgb(3, 45, 87);">
+            <p class="pp" >logged Out</p>
+            <a href="" class="notify" style="margin: 10px;">
+                <i class="fa fa-bell bell"></i>
+                <span class="round" ><%= loggedOut %></span>
+            </a>
+        </div>
+        </div>
+    </div>
+    </a>
+    
+    <!-- Notification Ends Here -->
+</div>

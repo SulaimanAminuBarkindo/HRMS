@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/doctor/css/profile.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+    <div id="content">
+        <header>
+            <div class="header-list">
+            <button class="header-list-item"><span class=" fa fa-plus"></span> New Treatment</button>
+            <button class="header-list-item"><span class="fa fa-file"></span> Records</button>
+            <button class="header-list-item"><span class="fa fa-envelope"> Messages</span></button>
+        </div>
+        <div class="search-area">
+            <div class="search-container">
+          <input type="search" class="search" placeholder="search activity"> &nbsp;<span class="fa fa-search"></span>
+        </div>
+        </div>
+        <div>
+            <div class="header-section-3">
+              
+               
+                <div class="fa fa-sun icon-3" title="Settings"></div>
+                <div class="fa fa-bell icon-3" title="All Notifications"></div>
+                <div class="drop-down">
+                    <div class="fa fa-user-circle icon-3 drop-btn">
+                        <div class="dropdown-content">
+                            <a href="profile.html"><span class="fa fa-user-circle"></span>&nbsp; &nbsp; Profile</a>
+                            <a href="profile.html"><span class="fa fa-lock"></span>&nbsp; &nbsp;Change Password</a>
+                            <a href="#"><span class="fa fa-key">&nbsp; &nbsp;Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        </header>
+       <aside>
+          
+        <ul>
+            <center><img src="" width="80px" height="80px"><br>
+                <span class="doctor-user">DOCTOR MUBARAK</span><br><span class="fa fa-circle"> online</span></center>
+                <li><a href="dashboard.html"><span class="fa fa-desktop li-icons"></span><span class="li-list">Dashboard</span></a></li>
+                <li><a href="#"><span class="fa fa-industry li-icons"></span><span class="li-list">Department</span></a></li>
+                
+                <li><a href="patient.html"><span class="fa fa-users li-icons"></span><span class="li-list">Patient</span></a></li>
+                <li><a href="nurse.html"><span class="fa fa-user-md li-icons"></span><span class="li-list">Nurse</span></a></li>
+                <li><a href="#"><span class="fa fa-pills li-icons"></span><span class="li-list">Pharmacist</span></a></li>
+                <li><a href="#"><span class="fa fa-flask li-icons"></span><span class="li-list"> Laboratory</span></a></li>
+                <li><a href="#"><span class="fab fa-cc-visa li-icons"></span><span class="li-list">Accountant</span></a></li>
+                <li><a href="#"><span class="fa fa-bell li-icons"></span><span class="li-list">Settings</span></a></li>
+                <li><a href="profile.html"  class="active"><span class="fa fa-user-circle li-icons"></span><span class="li-list">Profile</span></a></li>
+            </ul>
+        <div class="datee"><p id="date"></p></div> 
+       </aside>
+      
+        <main>
+            <div class="main-nav">
+                <div class="sub-main-nav">
+                    <span class="fa fa-edit"> Edit Profile</span>
+                </div>
+               
+            </div>
+            <form name="form" enctype="multipart/form-data">
+                <div>
+                    <label>Name</label><br>
+                    <input type="text" value="<%= user.name %>" name="name" required><br>
+                    <label>Email</label><br>
+                    <input type="email" value="<%= user.email %>" name="email" required>
+                </div>
+                 <div class="change-image">
+                <img src="/uploads/<%= user.img %>.jpg" alt="profile-photo" width="100px" height="100px"><br>
+                <input class="change-img-btn" type="file" name="image">
+                <button class="upload-btn" id="uploadBtn"><i class="fa fa-submit">Upload</i></button>
+            </div>
+            <div class="form-section2">
+                <span>Leave your Password if you dont want to change it.</span>
+                <label>Old Password <span style="color: red;">*</span></label><br>
+                <input type="password" placeholder="Enter old Password" name="oldPassword"><br>
+                <label>New Password <span style="color: red;">*</span></label><br>
+                <input type="password" placeholder="Enter new Password" name="newPassword"><br>
+                <label>RE Enter New Password <span style="color: red;">*</span></label><br>
+                <input type="password" placeholder="Re-enter password as put above" name="confPassword"><br>
+                <input type="hidden" name="id" value="<%= user._id %>"><br>
+                <input class="edit-btn" type="submit" value="Edit">
+            </div>
+            </form>
+           
+            
+         
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script src="/profile.js"></script>
+    <script>
+       
+        function displayTime(){
+              const refresh = 1000;
+              const mytime = setTimeout('display()', refresh)
+        }
+        function display(){
+            const date = new Date();
+            const dateFormat = date.toUTCString();
+            document.getElementById('date').innerHTML = dateFormat;
+            tt = displayTime();
+        }
+           
+        
+        </script>
+</body>
+</html>

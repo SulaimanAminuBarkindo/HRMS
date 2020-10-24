@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMMS</title>
+    <link rel="stylesheet" href="/lab/css/style.css">
+    <link rel="stylesheet" type="text/css"
+    href=/fontawesome-free-5.12.0-web/css/all.css>
+    
+</head>
+<body onload="display();">
+    <!-- Side Bar Begins Here -->
+<section class="sideBar">
+         <div class="avarter">
+            <img src="img/img1.png" alt="" width="100px" >
+         </div>
+                <div class="admin">Laboratory</div>
+     <div class="nav">
+        <a href="index.html" ><i class="fa fa-qrcode fas"></i> Dashboard</a>
+        <a href="patient.html"><i class="fa fa-users fas"></i> Patients</a> 
+            <!-- staus of patient can also be dischardge Admiteed -->
+        <a href="appointment.html" class="active"><i class="fa fa-calendar fas"></i> Laboratory test</a>
+        <a href="#"><i class="fa fa-user-circle fas"></i> Profile</a>
+        <a href="response.html"><i class="fa fa-envelope fas" ></i> Send Response</a>
+        <a href="patientsearch.html"><i class="fa fa-search fas"></i> Search Eqipment</a>
+    </div><br>
+        <hr>
+        <div class="datee"><p id="date"></p></div>  
+ </section>
+ <!-- End of side Bar -->
+<!-- Header begins here -->
+<header>
+<div class="search">
+    <h2 class="h2">Haske Clinic And Merternity Management systems</h2>
+</div>
+<div class="user">
+    <!-- <a href="" class="notify">
+        <i class="fa fa-bell bell" ></i>
+        <span class="round">3</span>
+    </a> -->
+    <a href="">
+        <span id='name'style="display: inline-block; padding-right: 8px; font-weight:
+     bold; color: rgb(3, 45, 87);">Dorathy</span>
+        <div class="userProfile"></div>
+        <i class="fa fa-caret-down"></i>
+    </a>
+
+</div>
+</header>
+<!-- header ends here -->
+<!-- Main start here-->
+<section class="mainSection">
+    <div>
+        <h3 style="color: rgb(3, 45, 87); font-size: 28px; display: inline-block;">Dashboard | Laboratory Test </h3>
+        <!-- Notification start here -->
+        <div style="float: right; margin-right: 100px;">
+            <span class="note">Notifications </span>
+            <div style="display: flex;padding-right: 30px;">    
+            <div >
+                <p class="pp" >Doctor</p>
+                <a href="" class="notify" style="margin: 10px;">
+                    <i class="fa fa-bell bell"></i>
+                    <span class="round" id="fromDoctor"><%= fromDoctor %></span>
+                </a>
+            </div>
+            </div>
+        </div>
+        <!-- Notification Ends Here -->
+    </div>
+    <p id="name" style="padding-top:20px; font-size: 18px; color:rgb(209, 209, 209);">LABORATORY REPORT</p>
+ 
+ 
+    <div class="holder">
+           <div class="tabs">
+              <div role ="tablist" aria-label="lab">
+                <button role="tab" aria-selected="true" id="Btn1" >
+                   HAEMETOLOGY
+                </button>
+                <button role="tab" aria-selected="false" id="Btn2">
+                    CLINICAL CHEMISTRY
+                </button>
+                <button role="tab" aria-selected="false" id="Btn3">
+                   URINE ANALYSIS
+                </button>
+                <button role="tab" aria-selected="false" id="Btn4">
+                    MICROBIOLOGY
+                 </button>
+              </div> 
+                <form name="form">
+                    <input type="hidden" name="id" value="<%= treatmentId %>">
+                    <div role="tabpanel" aria-labelledby="Btn1">
+                        <div class="lab">
+                            <form action="">
+                            <input type="checkbox" name="fbc"> FBC
+                                <div class="holderH">
+                                    <div class="div">
+                                        <span>Total WBC: &nbsp; &nbsp;<input type="text" name="totalWbc"></span>
+                                        <span>Neutrophils: &nbsp; <input type="text" name="neutrophils"></span>
+                                        <span>Monocyte: &nbsp; &nbsp;&nbsp;  <input type="text" name="monocyte"></span>
+                                        <span>Basophils &nbsp; &nbsp;&nbsp; <input type="text" name="basophils"></span>
+                                        <span>Eosinophis:&nbsp; &nbsp;<input type="text" name="eosinophis"></span>
+                                        <span>ESR:&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="esr"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span>Hb/pvc:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="hbPvc"></span>
+                                        <span>Film Report:&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<input type="text" name="filmReport"></span>
+                                        <span>Malaria parasite:&nbsp; &nbsp;<input type="text" name="malariaParasite"></span>
+                                        <span>Prothrombin Time:<input type="text" name="prothrombinTime"></span>
+                                        <span>Clothing Time: &nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="clothingTime"></span>
+                                        <span>Bleeding Time: &nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="bleedinTime"></span>
+                                        <span>APTK:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+                                            &nbsp;&nbsp; &nbsp;<input type="text" name="aptk"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span>Genotype:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                             &nbsp;&nbsp; &nbsp;<input type="text"name="genotype"></span>
+                                        <span>Blood cross Matching:<input type="text" name="bloodCrossMatching"></span>
+                                        <span>HBsAG:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                             &nbsp;&nbsp;<input type="text" name="HBsAG"></span>
+                                        <span>HCV:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+                                            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="hcv"></span>
+                                        <span>Retroviral Screening:&nbsp; &nbsp;<input type="text" name="retroviralScreening"></span>
+                                        <span>VDRL:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                                            &nbsp; &nbsp;<input type="text" name="vdrl"></span>
+                                    </div>
+                                </div>
+                                <div class="table">
+                                <table>
+                                    <tr>
+                                        <th rowspan="2">Widal Test </th>
+                                        <td><input type="checkbox" name="widalTest"> O Antigen</td>
+                                        <td><input type="checkbox" name="widalTest"> A</td>
+                                        <td><input type="checkbox" name="widalTest"> B</td>
+                                        <td><input type="checkbox" name="widalTest"> C</td>
+                                        <td><input type="checkbox" name="widalTest"> Typhi</td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="widalTest"> A Antigen</td>
+                                        <td><input type="checkbox" name="widalTest"> A</td>
+                                        <td><input type="checkbox" name="widalTest"> B</td>
+                                        <td><input type="checkbox" name="widalTest"> C</td>
+                                        <td><input type="checkbox" name="widalTest"> Typhi</td>
+                                    </tr>
+                                </table>
+                                </div>
+                             </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="Btn2" hidden >
+                        <div class="lab">
+                            <form action="">
+                            <input type="checkbox" name="lft"> LFT
+                                <div class="holderHC">
+                                    <div class="div">
+                                        <span>GOT: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="got"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>GPT: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="gpt"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>ALKP:&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  <input type="text" name="alkp"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Albumin &nbsp; &nbsp;&nbsp; <input type="text" name="albumin"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Total Prot:&nbsp; &nbsp;<input type="text" name="totalProt"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>T.Bilirin:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="tBilirin"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>D.Bilirin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dBrilin"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>I.Bilirin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="iBrilin"></span>
+                                        <label for="">up to 12iu/l</label>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-top: -40px; margin-bottom: 20px;"><input type="checkbox" name="eUrCr"> E,Ur & Cr</span>
+                                        <span>Na <sup>+</sup>: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="na"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>K <sup>+</sup>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="k"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Ca <sup>+2</sup>: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  <input type="text" name="ca"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Cl<sup>-</sup>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <input type="text" name="cl"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>HCO <sub>3</sub><sup>-</sup>:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="hco"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Po <sub>4</sub> <sup>-</sup>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="po"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Ur:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="ur"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Cr:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="cr"></span>
+                                        <label for="">up to 12iu/l</label>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-top: -40px; margin-bottom: 20px;"><input type="checkbox" name="lipidProfile"> LIPID PROFILE</span>
+                                        <span>T.Chol:  &nbsp;&nbsp; &nbsp; &nbsp;<input type="text" name="tChol"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>LDL-c: &nbsp; &nbsp;  &nbsp;&nbsp; <input type="text" name="ldlC"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>HDLC-c: &nbsp; &nbsp;&nbsp;  <input type="text" name="hdlcC"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Trigl: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <input type="text" name="trigl"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>FBS:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="fbs"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>RBS:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="rbs"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>2hrs PP:&nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="hrsPP"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Cr:&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name=""></span>
+                                        <label for="">up to 12iu/l</label>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-top: -40px; margin-bottom: 20px;"><input type="checkbox" > HBV-PROFILE</span>
+                                        <span>HBsAg: &nbsp; &nbsp;  &nbsp;<input type="text"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>HBsAb: &nbsp;  &nbsp; &nbsp;<input type="text"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>HBeAG: &nbsp; &nbsp;&nbsp;  <input type="text"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>HBeAb: &nbsp; &nbsp;&nbsp; <input type="text"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>HBcAb:&nbsp; &nbsp; &nbsp;<input type="text"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>Uric A:&nbsp;  &nbsp; &nbsp;<input type="text"></span>
+                                        <label for="">up to 12iu/l</label>
+                                        <span>SBheG:&nbsp; &nbsp;  &nbsp;<input type="text"></span>
+                                        <label for="">up to 12iu/l</label>
+                                    </div>
+                                 </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="Btn3" hidden>
+                       <div class="table">
+                         <table>
+                             <tr>
+                                 <th> Color</th>
+                                 <th>Apperance</th>
+                                 <th>PH</th>
+                             </tr>
+                             <tr>
+                                 <td> <input type="checkbox"> SG</td>
+                                 <td><input type="checkbox"> Prot</td>
+                                 <td><input type="checkbox"> Glu</td>
+                             </tr>
+                             <tr>
+                                <td><input type="checkbox"> Ket</td>
+                                <td><input type="checkbox"> Urobi</td>
+                                <td><input type="checkbox"> Bil</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"> Occt Bid</td>
+                                <td><input type="checkbox"> Nit</td>
+                                <td><input type="checkbox"> Asc. Acid</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"> Epith cells</td>
+                                <td><input type="checkbox"> WBC</td>
+                                <td><input type="checkbox"> RBC</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"> Casts</td>
+                                <td><input type="checkbox"> Bacteria</td>
+                                <td><input type="checkbox"> Parasite</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"> Yeast</td>
+                                <td><input type="checkbox"> Others</td>
+                                <td></td>
+                            </tr>
+                         </table>
+                       </div>
+                </div>
+                     <div role="tabpanel" aria-labelledby="Btn4" hidden >
+                        <div class="lab">
+                            <form action="">
+                                <div class="holderHCC">
+                                    <div class="div">
+                                        <span style="margin-top: -20px; margin-bottom: 20px;"><input type="checkbox" > Urine MCS</span>
+                                        <span>Colour: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Apperance: &nbsp;&nbsp; <input type="text"></span>
+                                        <span> Wet Preps:</span>
+                                        <div style="margin-left:20px; margin-top: 8px; margin-bottom: 8px; " >
+                                        <span>Epith Cells:<input type="text"></span>
+                                        
+                                        <span>WBC: &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<input type="text"></span>
+                                        <span>Parasite:&nbsp; &nbsp;<input type="text"></span>
+                                        <span>Others:&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"></span>
+                                        </div>
+                                        <span>culture:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Sensitivity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-top: -20px; margin-bottom: 20px;"><input type="checkbox" > HVS/ECS MCS</span>
+                                        <span> Wet Preps:</span>
+                                        <div style="margin-left:20px; margin-top: 8px; margin-bottom: 8px; " >
+                                        <span>Epith Cells:<input type="text"></span>
+                                        <span>WBC: &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<input type="text"></span>
+                                        <span>Others:&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"></span>
+                                        </div>
+                                        <span>culture:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Sensitivity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-top: -20px; margin-bottom: 20px;"><input type="checkbox" > Stool MCS</span>
+                                        <span>Macroscopy: &nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>&nbsp;&nbsp;&nbsp;Epith Celss:&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 110px; margin-bottom: 8px;"><input type="text"></span>
+                                        <span>Consistency: &nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 110px; margin-bottom: 8px;"><input type="text"></span>
+                                        <span> Wet Preps:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <div style="margin-left:20px; margin-top: 8px; margin-bottom: 8px; " >
+                                        <span>Epith Cells:<input type="text"></span>
+                                        <span>WBC: &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Parasite:&nbsp; &nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Others:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        </div>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-top: -20px; margin-bottom: 20px;"><input type="checkbox" > Sputum MCS</span>
+                                        <span>Microscopy:&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Culture: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Sensitivity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span style=" margin-bottom: 20px;"><input type="checkbox" > Sputum AFB (ZN x3)</span>
+                                        <span>AFB x 1:&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>AFB x 2:&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>AFB x 3:&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span style=" margin-bottom: 20px;"><input type="checkbox" > Blood Culture</span>
+                                        <span>Microscopy:&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Culture: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Sensitivity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-bottom: 20px;"><input type="checkbox" > Wound Swab MCS</span>
+                                        <span>Microscopy:&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Culture: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Sensitivity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span style="margin-bottom: 20px;"><input type="checkbox" > Seminal Fluid Analysis</span>
+                                        <span>Time Produced:<input type="text"></span>
+                                        <span>Time Received:<input type="text"></span>
+                                        <span>Time Analysed:<input type="text"></span>
+                                    </div>
+                                    <div class="div" >
+                                        <span>Viscosity: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Volume:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Colour:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>PH:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Sperm Count:<input type="text"></span>
+                                    </div>
+                                    <div class="div">
+                                        <span> Motility:</span>
+                                        <div style="margin-left:20px;  margin-bottom: 8px; " >
+                                        <span>Active: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span>Sluggish:&nbsp; &nbsp;&nbsp;<input type="text"></span>
+                                        <span>Dead:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"></span>
+                                        </div>
+                                    </div>
+                                    <div class="div">
+                                        <span> Morphology:</span>
+                                        <div style="margin-left:20px;  margin-bottom: 8px; " >
+                                        <span>Pin-headed:&nbsp;<input type="text"></span>
+                                        <span>Double-tail: &nbsp;<input type="text"></span>
+                                        <span>Bent-neck:&nbsp; &nbsp;<input type="text"></span>
+                                        <span>Others:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<input type="text"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="div">
+                                        <span> Wet-Prep:</span>
+                                        <div style="margin-left:20px;  margin-bottom: 8px; " >
+                                        <span>Epith Cells:&nbsp;<input type="text"></span>
+                                        <span>Pus Celss: &nbsp;<input type="text"></span>
+                                        <span>RBC:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<input type="text"></span>
+                                        <span>Others:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<input type="text"></span>
+                                        </div>
+                                    </div>
+                                    <div class="div" style="margin-bottom: 50px;">
+                                        <span style="margin-bottom: 20px;"><input type="checkbox" > Semen MCS</span>
+                                        <span>Microscopy:&nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Culture: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <input type="text"></span>
+                                        <span>Sensitivity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                        <span style="margin-left: 100px;"><input type="text"></span>
+                                    </div>
+                                    <div class="div" style="margin-top: 150px;">
+                                     <button type="submit" class="btn5">Submit</button>
+                                    </div>
+                        </div>
+                     </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<div style="position: fixed; bottom: 0; background: rgb(3, 45, 87);
+ margin-left: 250px; padding: 15px; color:#3391ED;width: 100%; font-size: 12px;"><p>©2020 
+ HCMMS All Rights Reserved
+    Prouldly Powered By AIS</p></div>
+    
+<!-- section Ends here -->
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/lab/js/socket-config.js"></script>
+<script src="./js/lab.js"></script>
+</html>

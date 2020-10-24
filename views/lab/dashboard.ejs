@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMMS</title>
+    <link rel="stylesheet" href="/lab/css/style.css">
+    <link rel="stylesheet" href="/lab/css/header.css">
+    <link rel="stylesheet" type="text/css"
+    href=/fontawesome-free-5.12.0-web/css/all.css>
+    
+</head>
+<body onload="display();">
+    <!-- Side Bar Begins Here -->
+<section class="sideBar">
+         <div class="avarter">
+            <img src="img/img1.png" alt="" width="100px" >
+         </div>
+                <div class="admin">Laboratory</div>
+     <div class="nav">
+        <a href="/" class="active"><i class="fa fa-qrcode fas"></i> Dashboard</a>
+        <a href="labtest.html"><i class="fa fa-calendar fas"></i>Laboratory test</a>
+        <a href="#"><i class="fa fa-user-circle fas"></i> Profile</a>
+        <a href="response.html"><i class="fa fa-envelope fas"></i> Send Response</a>
+    </div><br>
+        <hr>
+        <div class="datee"><p id="date"></p></div>  
+ </section>
+ <!-- End of side Bar -->
+<!-- Header begins here -->
+<header>
+<div class="search">
+    <h2 class="h2">Haske Clinic And Merternity Management systems</h2>
+</div>
+<div class="user">
+    <!-- <a href="" class="notify">
+        <i class="fa fa-bell bell" ></i>
+        <span class="round">3</span>
+    </a> -->
+    <a href="">
+        <span id='name'style="display: inline-block; padding-right: 8px; font-weight:
+     bold; color: rgb(3, 45, 87);">Dorathy</span>
+        <div class="userProfile"></div>
+        <i class="fa fa-caret-down"></i>
+    </a>
+
+</div>
+</header>
+<!-- header ends here -->
+<!-- Main start here-->
+<section class="mainSection">
+    <div>
+        <h3 style="color: rgb(3, 45, 87); font-size: 28px; display: inline-block;">Dashboard</h3>
+        <!-- Notification start here -->
+        <div style="float: right; margin-right: 100px;">
+            <span class="note">Notifications </span>
+            <div style="display: flex;padding-right: 30px;">    
+            <div style="border-right: 2px solid rgb(3, 45, 87);">
+                <p class="pp" >Doctor</p>
+                <a href="doctor-notifications" class="notify" style="margin: 10px;">
+                    <i class="fa fa-bell bell"></i>
+                    <span class="round" id="fromDoctor"><%= fromDoctor %></span>
+                </a>
+            </div>
+            </div>
+        </div>
+        <!-- Notification Ends Here -->
+    </div>
+    <p id="name" style="padding-top:20px; font-size: 18px; color:rgb(209, 209, 209);">LABORATORY REPORT</p>
+ 
+ 
+    <div class="holder">
+        <div>
+            PATHOLOGY
+        </div>
+ </div>
+</section>
+
+
+<div style="position: fixed; bottom: 0; background: #fff;
+ margin-left: 250px; padding: 15px; color:#3391ED;width: 100%; font-size: 12px;"><p>©2020 
+ HCMMS All Rights Reserved
+    Prouldly Powered By AIS</p></div>
+    
+<!-- section Ends here -->
+</body>
+<script>
+    // document.getElementById('date').innerHTML =  Date();
+    // document.querySelector('#name').innerHTML =  'Dorathy';
+    function displayTime(){
+          const refresh = 1000;
+          const mytime = setTimeout('display()', refresh)
+    }
+    function display(){
+        const date = new Date();
+        const dateFormat = date.toUTCString();
+        document.getElementById('date').innerHTML = dateFormat;
+        tt = displayTime();
+    }
+        // const date = new Date();
+        // const dateFormat = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+        // dateFormats = dateFormat  + " Time is " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        // document.getElementById('date').innerHTML = dateFormats;
+        // displayTime();
+    
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lab/js/socket-config.js"></script>
+</html>

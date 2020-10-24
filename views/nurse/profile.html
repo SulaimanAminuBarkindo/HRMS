@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="profile.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+    <div id="content">
+        <header>
+            <div>
+            <span><h2>HASKE NURSING HOME AND MATERNITY CENTER</h2></span>
+        </div>
+        <div>
+            <button class="logout-btn">Logout <i class="fa fa-arrow-circle-right"></i></button>
+            <span class="fa fa-user doctor">&nbsp; Nurse Zainab</span>
+           
+        </div>
+           
+        </header>
+       <aside>
+          
+        <ul>
+            <center><img src="nurse.jpg" width="150px" height="150px"></center>
+            <li><a href="nurse.html"><i class="fa fa-desktop">&nbsp; Dashboard</i></a></li>
+            <li><a href="bed-allocation.html"><i class="fa fa-bed">&nbsp; Bed Allocation</i></a></li>
+            <li><a href="patient.html"><i class="fa fa-users">&nbsp; Patient</i></a></li>
+            <li><a href="#"><i class="fa fa-file">&nbsp; Report</i></a></li>
+           
+            <li><a href="#"><i class="fa fa-flask">&nbsp; Blood Bank</i></a></li>
+            <li><a href="#"><i class="fa fa-bell">&nbsp; Settings</i></a></li>
+           
+            <li><a href="profile.html" class="active"><i class="fa fa-user">&nbsp; Profile</i></a></li>
+        </ul>
+        <div class="datee"><p id="date"></p></div>
+       </aside>
+      
+        <main>
+            <div class="main-nav">
+                <div class="sub-main-nav">
+                    <span class="fa fa-edit">Edit Profile</span>
+                </div>
+               
+            </div>
+            <form>
+                <div>
+                    <label>Name</label><br>
+                    <input type="text" value="Nurse Zainab" disabled><br>
+                    <label>Email</label><br>
+                    <input type="text" value="zainab2019@live.com" disabled>
+                </div>
+                 <div>
+                <img src="nurse.jpg" alt="profile-photo" width="100px" height="100px"><br>
+                <button class="change-img-btn" type="file"><i class="fa fa-user"> Change Image</i></button>
+                <button class="upload-btn"><i class="fa fa-submit">Upload</i></button>
+            </div>
+            <div class="form-section2">
+                <span>Leave your Password if you dont want to change it.</span>
+                <label>New Password <span style="color: red;">*</span></label><br>
+                <input type="password" placeholder="Enter Password"><br>
+                <label>RE Enter Password <span style="color: red;">*</span></label><br>
+                <input type="password" placeholder="Re-enter Password"><br>
+                <input class="edit-btn" type="submit" value="Edit">
+            </div>
+            </form>
+           
+            
+         
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+       
+        function displayTime(){
+              const refresh = 1000;
+              const mytime = setTimeout('display()', refresh)
+        }
+        function display(){
+            const date = new Date();
+            const dateFormat = date.toUTCString();
+            document.getElementById('date').innerHTML = dateFormat;
+            tt = displayTime();
+        }
+           
+        
+        </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+#ignore node_modules folder
+node_modules
+
+#ignore font awesome folder
+fontawesome-free-5.12.0-web

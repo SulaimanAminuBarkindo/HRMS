@@ -1,0 +1,517 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    font-family: sans-serif;
+    background: #F4F6F9;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(3, 45, 87);
+}
+.edit button{
+    background: rgb(3, 45, 87);
+    padding: 10px 25px;
+    color: white;
+    border:none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition:all 0.9;
+}
+.edit button:hover{
+    background: #3391ED;
+}
+/* Side Bar Begins here */
+.avarter{
+    width:100px;
+    height: 100px;
+    border: 2px solid transparent ;
+    border-radius: 50%;
+    position: relative;
+    margin: 15px 100px 0 70px;
+    overflow: hidden;
+}
+.avarter img{
+    position: absolute; 
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
+.admin{
+    text-align: center;
+    color:rgb(241, 236, 236);
+    padding: 20px;
+    font-size: 22px;
+}
+.sideBar{
+    background: rgb(3, 45, 87);
+    width:250px;
+    position:absolute;
+    top:0;
+    bottom: 0;
+    
+    /* height: 800px;
+    position:absolute;
+    top:0;
+    bottom: 0; */
+}
+.nav{
+    padding-top:20px ;
+}
+.datee{
+   margin:30px;
+   color: rgb(241, 236, 236);
+   line-height: 30px;
+}
+.nav a{
+    display: block;
+    color: rgb(241, 236, 236);
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: 300;
+    transition: 0.3s ease-in-out;
+    /* border-bottom: 1px solid rgb(167, 166, 166) ; */
+}
+.nav a:last-child{
+    border:none;
+}
+.nav a:hover{
+    background: #3391ED;
+    border-left: 5px solid rgb(241, 236, 236);
+    padding:15px 30px 15px 25px;
+}
+.nav a:hover .fas{
+    color:rgb(3, 45, 87);
+
+}
+.nav a.active{
+background:#3391ED ;
+border-left: 5px solid rgb(241, 236, 236);
+padding:15px 30px 15px 25px;
+}
+.nav a.active .fas{
+    color: rgb(3, 45, 87) ;
+}
+.fas{
+    color:rgb(241, 236, 236);
+    font-size: 1.4rem;
+    margin-right: .8rem;
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    top:2px;
+}
+/* End of SideBar */
+header{
+    margin-left: 250px;
+    padding:15px ;
+    background: #fff;
+
+}
+header .search{
+    display: inline-block;
+    color:#3391ED ;
+}
+header .user{
+    display: inline-block;
+    float:right;
+    position: relative;
+    top: -10px;
+}
+/* header .user{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -25px;
+} */
+header .user a{
+    display: inline-block;
+    padding-right: 15px;
+    text-decoration: none;
+}
+ a .notify{
+    position: relative;
+}
+.bell{
+    font-size: 1.3rem;
+    color: rgb(3, 45, 87);
+}
+ a .round{
+display: inline-block;
+background: #3391E7;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+font-size: 12px;
+color: #fff;
+text-align: center;
+position: relative;
+top:-10px;
+right: 5px;
+font-weight: 200;
+}
+.userProfile{
+    background: url('../img/img1.png') no-repeat center ; 
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  top: 8px;
+}
+/* Hearder ends here */
+.pp{
+    margin: 8px;
+}
+.note{
+    margin: 8px;
+    color: rgb(3, 45, 87); 
+    font-size: 22px; 
+    padding-bottom: 80px; 
+    font-weight: bold;
+}
+/* Main start here */
+.mainSection{
+    margin-left: 260px;
+    padding: 40px 0 0 50px;
+    animation: body 1s ;
+}
+@keyframes body{
+    from{opacity: 0;};
+    to{opacity: 0.4;}
+}
+.mainSection .cardHolder {
+    display: flex;
+    flex-wrap: wrap;
+    margin:0 auto;
+    margin-top: 30px;
+    color:rgb(3, 45, 87)
+}
+.mainSection .cardHolder .card{
+    width: 300px;
+    height: auto;
+    background: #fff;
+    margin: 30px 30px 0px 0px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: middle;
+    box-shadow: 0 0 5px 0 rgb(3, 45, 87);
+    transition:   0.5;
+    cursor: pointer;
+    position: relative;
+}
+.mainSection .cardHolder .card:hover{
+    box-shadow: 0 0 8px 0 rgb(3, 45, 87);
+}
+
+.icons{
+    height: auto;
+    width: 100px;
+    border-radius: 4px;
+    background: #3391ED;
+    padding: 10px;
+    margin-left: 5.3rem;
+    margin-bottom: 10px;
+    position: relative;
+    
+}
+.icons .icon{
+    color:#fff;
+    font-size: 3rem;
+    margin-right: .8rem;
+    display: inline-block;
+    width: 30px;
+}
+.p{
+    
+    padding-top: 20px;
+    color: #3391ED;
+}
+.iconss{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    width: 100px;
+    background: #3391ED;
+    left: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.iconss .icon {
+    color: white;
+    padding-top: 50px;
+    font-size: 3rem;
+}
+.iconss1{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    background: rgb(3, 45, 87);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.div{
+    margin-left: 100px;
+    margin-top: 10px;
+}
+.iconss1 .icon {
+    color: white;
+    padding-top: 50px;
+    font-size: 3rem;
+}
+.div1{
+    margin-right:80px;
+    margin-top: 10px;
+}
+
+/* patient start here */
+.mainSection1{
+    margin-left: 250px;
+    padding: 40px 0 0 10px;
+}
+.mainSection1 h3{
+    color: rgb(3, 45, 87);
+     font-size: 28px;
+}
+.mainSection1 .patientpara{
+    background-color:  rgb(3, 45, 87); 
+    padding: 10px 10px 10px 5px;
+    color:rgb(241, 236, 236);
+    font-size: 20px; 
+    margin:10px 60px  0 0px;
+}
+.patientcall{
+    margin:20px 60px  0 0px;
+}
+.patientcall .span{
+    display: inline-block; 
+    background: rgb(3, 45, 87);
+    padding: 10px 10px; 
+    color: rgb(241, 236, 236); 
+    font-weight: bold; 
+    font-size: 20px; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+.patientsearch{
+    float:right; 
+    position: relative;
+}
+.patientsearch span{
+    position: absolute; 
+    top:13px; left: 0; 
+    margin-left: 10px; 
+    color: rgb(3, 45, 87);
+}
+input[type=search]{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border:none;
+    padding-left: 30px;
+    box-sizing: border-box;
+    transition: .3s;
+    border: 2px solid rgb(3, 45, 87);
+    outline:none;
+    box-shadow: 0 0 8px 0px  rgba(0, 0, 0, 0.25); 
+}
+::placeholder{
+    font-size: 14px;
+    color: rgb(134, 131, 131);
+}
+input[type=search]:focus {
+    box-shadow: 0 0 8px 0 #3391E7;
+    border-color: #3391E7;
+}
+    footer{
+        position: fixed; 
+        bottom: 0; 
+        background: rgb(3, 45, 87);
+        margin-left: 250px; 
+        padding: 10px; 
+        color:white;
+        width: 100%; 
+        font-size: 12px;
+    }
+    /* Add Patient */
+    .bg-modal {
+        background-color: rgba(0, 0, 0, 0.8);
+         width:100vw;
+        height:100vh;
+        position: fixed;
+        margin: 0px;
+        top: 0;
+        display:none;
+        justify-content: center;
+        align-items: center;
+        animation: body 1.5s;
+      }
+      @keyframes body{
+        from{opacity: 0;};
+        to{opacity: 1;}
+    }
+      .modal-contents {
+        height: auto;
+        width: 850px;
+        background-color: white;
+        padding:5px 15px 15px 15px;
+        position: relative;
+        border-radius: 4px;
+        margin: 10px 0 0 0;
+        /* transition: all 5.6s ease-in-out; */
+        animation: body 1.5s;
+      }
+      .close {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 42px;
+        color: #333;
+        transform: rotate(45deg);
+        cursor: pointer;
+        animation: body 1.5s;
+      } 
+      @keyframes body{
+        from{opacity: 0;};
+        to{opacity: 0.4;}
+    }
+      input[type=text],input[type=number]{
+          width: 100%;
+          padding: 8px 18px;
+          margin: 8px 0px;
+          display: block;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 18px;
+          outline: none;
+          color:#3391E7
+          
+      }
+      input[type=text]:focus{
+        background: #F4F6F9;
+      }
+      .date{
+          width: 261px;
+          padding: 6px 18px;
+          margin: 8px 0px;
+          display: block;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 18px;
+          outline: none;
+      }
+      input[type=text]:focus, input[type=number]:focus,input[type=date]:focus {
+          box-shadow: 0 0 8px 0 #3391E7;
+          border-color: #3391E7;
+      }
+      .inputF{
+          margin: 10px 10px 5px 0;
+          display: inline-block;
+      }
+      .inputF span{
+          display: inline-block;
+          font-size: 18px;
+          color: rgb(3, 45, 87);
+          font-weight: bold;
+      }
+      input[type=submit]{
+          background-color: rgb(3, 45, 87); 
+          border: none;
+          color: white;
+          padding: 10px 28px;
+          text-align: center;
+          text-decoration: none;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          float: left;
+          border-radius: 20px;
+          transition: .6s;
+      } 
+      input[type=submit]:hover{
+          background: #3391ED;
+      }
+    /* End of ADD patient */
+    /* patient seaarxh */
+    
+    .pSearch{
+        background-color: transparent; 
+        color: #3391ED;
+        padding: 10px 28px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 10px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 1px solid #3391ED;
+        transition: .6s;  
+        font-weight: 300;
+    }
+    /* end of patient seach */
+ footer p{
+    text-align: center;
+    padding-right: 400px;
+ }
+ /* Book Appointmen */
+ .apoint{
+    margin-top: 0px;
+ }
+ .apoint span{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 8px;
+    font-weight: normal;
+    color: #858585;
+    font-size: 15px;
+ }
+ .PatientSearchHolder{
+    border: 3px solid rgba(0, 0, 0, 0.07); 
+    margin: 0 30% 0 0px; 
+    padding: 15px;
+    border-radius: 5px;
+ }
+ select{
+     width: 100%;
+     height: 40px;
+     /* border: 2px solid #ddd; */
+     border-radius: 3px;
+     padding-left: 10px;
+     margin-bottom: 15px;
+ }
+ select:focus, .d:focus{
+     background-color: #F4F6F9;
+ }
+ option{
+     padding-left: 40px;
+     font-size: 15px;
+     background: #F4F6F9;
+ }
+ .d{
+    width: 100%;
+    padding: 8px 18px;
+    display: block;
+    border: 1px solid rgb(167, 166, 166);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 15px;
+    
+ }
+
+ /* End of Book Appointment */

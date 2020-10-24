@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../nurse/css/nurse.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+    <div id="content">
+        <header>
+            <div class="header-list">
+            <button class="header-list-item"><span class=" fa fa-plus"></span> New Treatment</button>
+            <button class="header-list-item"><span class="fa fa-file"></span> Records</button>
+            <button class="header-list-item"><span class="fa fa-envelope"> Messages</span></button>
+        </div>
+        <div class="search-area">
+            <div class="search-container">
+          <input type="search" class="search" placeholder="search activity"> &nbsp;<span class="fa fa-search"></span>
+        </div>
+        </div>
+        <div>
+            <div class="header-section-3">
+              
+               
+                <div class="fa fa-sun icon-3" title="Settings"></div>
+                <div class="fa fa-bell icon-3" title="All Notifications"></div>
+                <div class="drop-down">
+                    <div class="fa fa-user-circle icon-3 drop-btn">
+                        <div class="dropdown-content">
+                            <a href="profile.html"><span class="fa fa-user-circle"></span>&nbsp; &nbsp; Profile</a>
+                            <a href="profile.html"><span class="fa fa-lock"></span>&nbsp; &nbsp;Change Password</a>
+                            <a href="#"><span class="fa fa-key">&nbsp; &nbsp;Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        </header>
+            <%- include('partials/side-bar.ejs') %>
+        <main>
+            <%- include('partials/notification-bar') %>
+            <div class="content-subject">
+           <div class="content-iconss">
+               <div class="icon-left">
+               <span class="fa fa-user-md left"></span>
+            </div>
+            <div>
+                <p class="content-info">
+                    <span class="note">Doctors</span><br>
+                    <span class="note1"><%= fromDoctor %></span><br>
+                    <span class="note2">Notifications</span><br>
+                </p>
+               
+            </div>
+            
+           </div>
+           <a href="bed-allocation.html"><div class="content-iconss">
+            <div class="icon-left">
+            <span class="fa fa-bed left"></span>
+         </div>
+         <div>
+             <p class="content-info">
+                 <span class="note">Bed Space</span><br>
+                 <span  class="note1"><%= numOfAllocatedBeds %></span><br>
+                 <span>Allocated</span><br>
+             </p>
+            
+         </div>
+        </div></a>
+        <div class="content-iconss">
+            <div class="icon-left">
+            <span class="fa fa-file left"></span>
+         </div>
+         <div>
+             <p class="content-info">
+                 <span class="note">Reports</span><br>
+                 <span  class="note1">20</span><br>
+                 <span>Active</span><br>
+             </p>
+            
+         </div>
+        </div>
+        <div class="content-iconss">
+            <div class="icon-left">
+            <span class="fa fa-users left"></span>
+         </div>
+         <div>
+             <p class="content-info">
+                 <span class="note">Patient</span><br>
+                 <span  class="note1">20</span><br>
+                 <span>Attended</span><br>
+             </p>
+            
+         </div>
+        </div>
+        <div class="content-iconss">
+            <div class="icon-left">
+            <span class="fa fa-pills left"></span>
+         </div>
+         <div>
+             <p class="content-info">
+                 <span class="note">Pharmacy</span><br>
+                 <span  class="note1">0</span><br>
+                 <span>Request</span><br>
+             </p>
+            
+         </div>
+        </div>
+        <div class="content-iconss">
+            <div class="icon-left">
+            <span class="fa fa-flask left"></span>
+         </div>
+         <div>
+             <p class="content-info">
+                 <span class="note">Laboratory</span><br>
+                 <span  class="note1">0</span><br>
+                 <span>Request</span><br>
+             </p>
+            
+         </div>
+        </div>
+          
+        <!-- <div class="content-icons">
+            <center><span class="fa fa-users icon"></span><br>
+            <span>Patients</span></center>
+        </div> -->
+       
+</div>
+     </div>
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+       const socket = io.connect('http://localhost:3000');
+        function displayTime(){
+              const refresh = 1000;
+              const mytime = setTimeout('display()', refresh)
+        }
+        function display(){
+            const date = new Date();
+            const dateFormat = date.toUTCString();
+            document.getElementById('date').innerHTML = dateFormat;
+            tt = displayTime();
+        }
+           
+        
+        </script>
+</body>
+</html>
