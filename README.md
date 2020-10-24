@@ -1,7 +1,7 @@
 # HRMS
-An Electronic Hospital Record Management System, that will enhance the efficiency and integrity of Hospital
+An Electronic Hospital Record Management System, that will enhance the efficiency and integrity of Hospitals
 
-#how to run the APP
+HOW TO RUN THE APPLICATION
 
 #install node
 
