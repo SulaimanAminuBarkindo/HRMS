@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMMS</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" type="text/css"
+    href=fontawesome-free-5.12.0-web/css/all.css>
+    
+</head>
+<body onload="display();">
+    <!-- Side Bar Begins Here -->
+<section class="sideBar">
+         <div class="avarter">
+            <img src="img/img1.png" alt="" width="100px" >
+         </div>
+                <div class="admin">Laboratory</div>
+     <div class="nav">
+        <a href="index.html" ><i class="fa fa-qrcode fas"></i> Dashboard</a>
+        <a href="patient.html"><i class="fa fa-users fas"></i> Patients</a> 
+            <!-- staus of patient can also be dischardge Admiteed -->
+        <a href="labtest.html"><i class="fa fa-calendar fas"></i>Laboratory test</a>
+        <a href="#"><i class="fa fa-user-circle fas"></i> Profile</a>
+        <a href="#" class="active"><i class="fa fa-envelope fas" ></i> Send Response</a>
+        <a href="patientsearch.html"><i class="fa fa-search fas"></i> Search Eqipment</a>
+    </div><br>
+        <hr>
+        <div class="datee"><p id="date"></p></div>  
+ </section>
+ <!-- End of side Bar -->
+<!-- Header begins here -->
+<header>
+<div class="search">
+    <h2 class="h2">Haske Clinic And Merternity Management systems</h2>
+</div>
+<div class="user">
+    <!-- <a href="" class="notify">
+        <i class="fa fa-bell bell" ></i>
+        <span class="round">3</span>
+    </a> -->
+    <a href="">
+        <span id='name'style="display: inline-block; padding-right: 8px; font-weight:
+     bold; color: rgb(3, 45, 87);">Dorathy</span>
+        <div class="userProfile"></div>
+        <i class="fa fa-caret-down"></i>
+    </a>
+
+</div>
+</header>
+<!-- header ends here -->
+<!-- Main start here-->
+<section class="mainSection">
+    <div>
+        <h3 style="color: rgb(3, 45, 87); font-size: 28px; display: inline-block;">Dashboard | Send Response </h3>
+        <!-- Notification start here -->
+        <div style="float: right; margin-right: 100px;">
+            <span class="note">Notifications </span>
+            <div style="display: flex;padding-right: 30px;">    
+            <div style="border-right: 2px solid rgb(3, 45, 87);">
+                <p class="pp" >Doctor</p>
+                <a href="" class="notify" style="margin: 10px;">
+                    <i class="fa fa-bell bell"></i>
+                    <span class="round" >23</span>
+                </a>
+            </div>
+            <div style="border-right: 2px solid rgb(3, 45, 87);">
+                <p class="pp" >Laboratory</p>
+                <a href="" class="notify" style="margin: 10px;">
+                    <i class="fa fa-bell bell"></i>
+                    <span class="round" >43</span>
+                </a>
+            </div>
+            <div style="border-right: 2px solid rgb(3, 45, 87);">
+                <p class="pp" >Pharmacy</p>
+                <a href="" class="notify" style="margin: 10px;">
+                    <i class="fa fa-bell bell"></i>
+                    <span class="round" >13</span>
+                </a>
+            </div>
+            <div >
+                <p class="pp" >Nurse</p>
+                <a href="" class="notify" style="margin: 10px;">
+                    <i class="fa fa-bell bell"></i>
+                    <span class="round" >3</span>
+                </a>
+            </div>
+            </div>
+        </div>
+        <!-- Notification Ends Here -->
+    </div>
+    <p id="name" style="padding-top:20px; font-size: 18px; color:rgb(209, 209, 209);">LABORATORY REPORT</p>
+ 
+ 
+    <div class="holder">
+           <div class="tabs">
+              <div role ="tablist" aria-label="Notification">
+                <button role="tab" aria-selected="true" id="Nurse">
+                    Nurse &nbsp; <i class="fa fa-cross"></i>
+                </button>
+                <button role="tab" aria-selected="false" id="Doctor">
+                    Doctor  &nbsp; <i class="fa fa-user"></i>
+                </button>
+                <button role="tab" aria-selected="false" id="Pharmacy">
+                    Pharmacy &nbsp; <i class="fa fa-pills"></i>
+                </button>
+              </div>  
+                    <div role="tabpanel" aria-labelledby="Nurse">
+                        <div class="msg">
+                            <form action="">
+                            <label>From</label> 
+                            <input type="text" required>
+                            <label>To:</label>
+                            <input type="text" required>
+                            <label for="">Subject</label>
+                            <input type="text" name="" id="" required> 
+                            <label for="">Compose Message</label>
+                            <textarea name="" id="" required></textarea>
+                            <button type="submit"> Send</button>
+                        </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="Doctor" hidden>
+                        <div class="msg">
+                            <form action="">
+                            <label>From</label> 
+                            <input type="text" required>
+                            <label>To:</label>
+                            <input type="text" required>
+                            <label for="">Subject</label>
+                            <input type="text" name="" id="" required>
+                            <label for="">Compose Message</label>
+                            <textarea name="" id="" required></textarea>
+                            <button type="submit"> Send</button>
+                        </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" aria-labelledby="Pharmacy" hidden>
+                        <div class="msg">
+                            <form action="">
+                            <label>From</label> 
+                            <input type="text" required>
+                            <label>To:</label>
+                            <input type="text" required>
+                            <label for="">Patient ID</label>
+                            <input type="text" value="12344/Nibras" required>
+                            <label for="">Subject</label>
+                            <input type="text" name="" id="" required>
+                            <label for="">Compose Message</label>
+                            <textarea name="" id="" required></textarea>
+                            <button type="submit"> Send</button>
+                        </form>
+                        </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div style="position: fixed; bottom: 0; background: #fff;
+ margin-left: 250px; padding: 15px; color:#3391ED;width: 100%; font-size: 12px;"><p>©2020 
+ HCMMS All Rights Reserved
+    Prouldly Powered By AIS</p></div>
+    
+<!-- section Ends here -->
+</body>
+<script src="./js/response.js"></script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../doctor/css/notifications.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+    <div id="content">
+        <header>
+            <div class="header-list">
+            <button class="header-list-item"><span class=" fa fa-plus"></span> New Treatment</button>
+            <button class="header-list-item"><span class="fa fa-file"></span> Records</button>
+            <button class="header-list-item"><span class="fa fa-envelope"> Messages</span></button>
+        </div>
+        <div class="search-area">
+            <div class="search-container">
+          <input type="search" class="search" placeholder="search activity"> &nbsp;<span class="fa fa-search"></span>
+        </div>
+        </div>
+        <div>
+            <div class="header-section-3">
+              
+               
+                <div class="fa fa-sun icon-3" title="Settings"></div>
+                <div class="fa fa-bell icon-3" title="All Notifications"></div>
+                <div class="drop-down">
+                    <div class="fa fa-user-circle icon-3 drop-btn">
+                        <div class="dropdown-content">
+                            <a href="profile.html"><span class="fa fa-user-circle"></span>&nbsp; &nbsp; Profile</a>
+                            <a href="profile.html"><span class="fa fa-lock"></span>&nbsp; &nbsp;Change Password</a>
+                            <a href="#"><span class="fa fa-key">&nbsp; &nbsp;Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        </header>
+       <aside>
+          
+        <ul>
+            <center><img src="dr.jpg" width="80px" height="80px"><br>
+              <span class="doctor-user">DOCTOR MUBARAK</span><br><span class="fa fa-circle"> online</span></center>
+              <li><a href="dashboard.html"><span class="fa fa-desktop li-icons"></span><span class="li-list">Dashboard</span></a></li>
+              <li><a href="#"><span class="fa fa-industry li-icons"></span><span class="li-list">Department</span></a></li>
+              
+              <li><a href="patient.html" class="active"><span class="fa fa-users li-icons"></span><span class="li-list">Patient</span></a></li>
+              <li><a href="nurse.html"><span class="fa fa-user-md li-icons"></span><span class="li-list">Nurse</span></a></li>
+              <li><a href="#"><span class="fa fa-pills li-icons"></span><span class="li-list">Pharmacist</span></a></li>
+              <li><a href="#"><span class="fa fa-flask li-icons"></span><span class="li-list"> Laboratory</span></a></li>
+              <li><a href="#"><span class="fab fa-cc-visa li-icons"></span><span class="li-list">Accountant</span></a></li>
+              <li><a href="#"><span class="fa fa-bell li-icons"></span><span class="li-list">Settings</span></a></li>
+              <li><a href="profile.html" ><span class="fa fa-user-circle li-icons"></span><span class="li-list">Profile</span></a></li>
+          </ul>
+          <div class="datee"><p id="date"></p></div> 
+       </aside>
+      
+        <main>
+            <div class="notifications-header">
+            <span class="fa fa-date" title="All Notifications"></span>
+            <span class="fa fa-backward" title="show previous"></span><span> Showing 1-110 of 2000 </span>
+            <span class="fa fa-forward" title="show next"></span>
+            <span class=""></span>
+            
+            <span class="sorting-option">Sort from:<input type="date"> to:<input type="date"> <button class="sorting-btn">sort</button></span>
+                
+               
+            </div>
+            <div class="notifications-area">
+                <% notifications.forEach(notification => { %>
+                 <a href="lab-test?id=<%= notification._id %>&cardNumber=<%= notification.cardNumber %>" class="notification-contents" id="contents">
+                <span><span style="font-weight: bold;"><%= notification.name%> 's Lab Request</span>                 
+                    <span><%= notification.lab.labRequest %></span>
+                     <span><%= notification.createdAt %></span>
+                    <button class="accept-btn-sml">Accept</button>
+                    <span class=" time">20min ago <span class="fa fa-trash-alt"></span></span>
+                </a>
+                <% }) %>              
+                
+            </div>
+        </main>
+        <footer>
+footer
+        </footer>
+
+    </div>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="/doctor/js/socket-config.js"></script>
+    <script type="text/javascript" src="../doctor/js/patient.js"></script>
+</body>
+</html>

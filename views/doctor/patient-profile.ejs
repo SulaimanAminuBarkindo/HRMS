@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/doctor/css/patient.css">
+   
+    <title>Document</title>
+</head>
+<style>
+    .collapsible {
+    background: #3391ED;
+    color: white;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+  }
+    
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    /* background-color: blue; */
+   
+  }
+    </style>
+
+<body  onload="display();">
+    <div id="content">
+        <header>
+            <div class="header-list">
+                <a href="patient-profile.html"> <button class="header-list-item"><span class=" fa fa-plus"></span> New Treatment</button></a>
+            <button class="header-list-item"><span class="fa fa-file"></span> Records</button>
+            <button class="header-list-item"><span class="fa fa-envelope"> Messages</span></button>
+        </div>
+        <div class="search-area">
+            <div class="search-container">
+          <input type="search" class="search" placeholder="search activity"> &nbsp;<span class="fa fa-search"></span>
+        </div>
+        </div>
+        <div>
+            <div class="header-section-3">
+              
+               
+                <div class="fa fa-sun icon-3" title="Settings"></div>
+                <div class="fa fa-bell icon-3" title="All Notifications"></div>
+                <div class="drop-down">
+                    <div class="fa fa-user-circle icon-3 drop-btn">
+                        <div class="dropdown-content">
+                            <a href="profile.html"><span class="fa fa-user-circle"></span>&nbsp; &nbsp; Profile</a>
+                            <a href="profile.html"><span class="fa fa-lock"></span>&nbsp; &nbsp;Change Password</a>
+                            <a href="#"><span class="fa fa-key">&nbsp; &nbsp;Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        </header>
+       <aside>
+          
+        <ul>
+            <center><img class="profile-img" src="dr.jpg" width="80px" height="80px"><br>
+                <span class="doctor-user">DOCTOR MUBARAK</span><br><span class="fa fa-circle"> online</span></center>
+                <li><a href="dashboard.html"><span class="fa fa-desktop li-icons"></span><span class="li-list">Dashboard</span></a></li>
+                <li><a href="#"><span class="fa fa-industry li-icons"></span><span class="li-list">Department</span></a></li>
+                
+                <li><a href="patient.html" class="active"><span class="fa fa-users li-icons"></span><span class="li-list">Patient</span></a></li>
+                <li><a href="nurse.html"><span class="fa fa-user-md li-icons"></span><span class="li-list">Nurse</span></a></li>
+                <li><a href="#"><span class="fa fa-pills li-icons"></span><span class="li-list">Pharmacist</span></a></li>
+                <li><a href="#"><span class="fa fa-flask li-icons"></span><span class="li-list"> Laboratory</span></a></li>
+                <li><a href="#"><span class="fab fa-cc-visa li-icons"></span><span class="li-list">Accountant</span></a></li>
+                <li><a href="#"><span class="fa fa-bell li-icons"></span><span class="li-list">Settings</span></a></li>
+                <li><a href="profile.html" ><span class="fa fa-user-circle li-icons"></span><span class="li-list">Profile</span></a></li>
+                </ul>
+                <div class="datee"><p id="date"></p></div> 
+       </aside>
+      
+        <main>
+            <div class="main-nav">
+                <div class="sub-main-nav">
+                    <span>Doctors Dashboard</span>
+                </div>
+               <div class="sub-main-nav-right">
+                    
+                <a href="receptionist-notifications.html"> <div class="nav-contents " >
+                        <span>Receptionist</span><br>
+                        <center>
+                            <span class="fa fa-bell bell notification-bell"></span><span class="nav-numbers top-right">10</span></center>
+                    </div></a>
+                    
+                    <div class="nav-contents" >
+                        <span>Laboratory</span><br>
+                        <center> <span class="fa fa-bell bell notification-bell"></span><span class="nav-numbers top-right">16</span></center>
+                    </div>
+                    <div class="nav-contents" >
+                        <span>Pharmacy</span><br>
+                        <center><span class="fa fa-bell bell notification-bell"></span><span class="nav-numbers top-right">29</span></center>
+                    </div>
+                    <div class="nav-contents" >
+                        <span>Nurse</span><br>
+                        <center><span class="fa fa-bell bell notification-bell"></span><span class="nav-numbers top-right">99</span></center>
+                    </div>
+                </div>
+            </div>
+         <div class="scroller-main">  
+            <div class="subject-header">
+                <div class="subject-header-outer">
+                  <div>
+                    <span class="fa fa-users">&nbsp; Manage Patients</span>
+                  </div>
+                  
+                </div>
+                
+              </div>
+          <div class="tabs">
+                <div role="tablist" aria-label="bed-allocations" class="tabs-elements">
+                  <button role="tab" aria-selected="true" id="bed-list" ><i class="fa fa-user">&nbsp;</i>Patient Information</button>
+                  <button role="tab" aria-selected="false" id="bed-allocation"><i class="fa fa-folder">&nbsp;</i>Treatment History</button>
+                 <button role="tab" aria-selected="false" id="add-bed"><i class="fa fa-cross">&nbsp; complete Patient Treatment Records</i></button>
+
+                </div>
+               
+               <div role="tabpanel" aria-labelledby="bed-list" class="tab-panel">
+                    <div>
+                    <div class="patient-header">
+                   <span class=" fa fa-user patient-header-content">&nbsp; Patient Information</span>
+                    </div>
+                    <div class="form-section">
+                <div>  
+                    <label>Card Number:</label><br>
+                    <input type="text" placeholder="Enter Card Number" value="<%= patient[0].cardNumber %>" disabled><br>
+                    <input type="hidden" value="<%= patient[0].cardNumber %>" name="cardNumber">
+                    <label>Birth Date:</label><br>
+                    <input type="date" value="<%= patient[0].dob %>" disabled><br>
+                    <input type="hidden" value="<%= patient[0].dob %>" name="dob">
+                    <label>Address:</label><br>
+                    <input type="text" placeholder="Enter home Address" value="<%= patient[0].address %>" disabled><br>
+                    <input type="hidden" value="<%= patient[0].address %>" name="address">
+                </div>
+                    <div>  
+                      <label>First Name:</label><br>
+                    <input type="text" placeholder="Enter first name here" value="<%= patient[0].firstName %>" disabled><br>
+                    <input type="hidden" value="<%= patient[0].firstName %>" name="firstName">
+                    <label>Age:</label><br>
+                    <input type="text" placeholder="Enter Age" value="<%= patient[0].age %>" disabled><br>
+                    <input type="hidden" value="<%= patient[0].age %>" name="age"> 
+                    <label>Gender: <span style="color: red">*</span></label><br>
+                    <select name="gender" disabled>
+                            <option><%=patient[0].gender%></option>                            
+                    </select><br>
+                    <input type="hidden" value="<%= patient[0].gender %>" name="state">
+                        
+                    
+                </div>
+                    <div>
+                        
+                     <label>Middle Name:</label><br>
+                    <input type="text" placeholder="Enter middle name here " value="<%= patient[0].middleName%>" disabled><br>
+                    <input type="hidden" value="<%= patient[0].middleName%>" name="middleName">
+                    <label>Telephone:</label><br>
+                    <input type="text" placeholder="Enter phone number here" value="<%= patient[0].phoneNumber %>" disabled ><br>
+                    <input type="hidden" value="<%= patient[0].phoneNumber %>" name="phoneNumber">     
+                    <label>State: <span style="color: red">*</span></label><br>
+                    <select disabled>
+                        <option><%= patient[0].state %></option>
+                    </select><br>
+                    <input type="hidden" value="<%= patient[0].state %>" name="state">
+                    
+                </div>
+                    <div>
+                      <label>Last Name:</label><br>
+                    <input type="text" placeholder="Enter last name here" value="<%= patient[0].lastName %>" disabled><br>
+                    <input type="hidden" value="<%= patient[0].lastName %>" name="latName">
+                    <label>Email:</label><br>
+                    <input type="text" placeholder="Enter email here" value="nibrasabubakar@gmail.com" disabled><br>
+                        <label>LGA: <span style="color: red">*</span></label><br>
+                    <select disabled>
+                         <option><%= patient[0].lga %></option>
+                    </select><br>
+                    <input type="hidden" value="<%= patient[0].lga %>" name="lga"> 
+                    </div>
+                        </div>
+                  <a href="print.html"><input type="submit" value="Print" ></a> 
+                </div>
+          </div>
+              <div role="tabpanel" aria-labelledby="bed-allocation" hidden="hidden">
+               <div>
+                   <button type="button" class="collapsible">Add New Medical History </button>
+                   <div class="content" hidden>
+                   <form name="newMedicalHistory" id="newMedicalhistory">
+                       <div  class="medical-datas">
+                           <div class="medical-datas-section-one">
+                               <span>Date</span><input type="date"><br>
+                              
+                               
+                               
+                           </div>
+                           <div class="medical-datas-section-two">
+                               <span>Vital Signs</span><br>
+                               <span>Temp:<input type="tel" name="vitalSigns[temperature]"></span>
+                               <span>Pulse:<input type="tel" name="vitalSigns[pulse]"></span>
+                               <span>Resp:<input type="tel" name="vitalSigns[resp]"></span>
+                               <span>Blood Pressure:<input type="tel" name="vitalSigns[bloodPresure]"></span>
+                           </div>
+                           <div class="medical-datas-section-three">
+                               <div class="complaint-header">
+                                   <span>Complaint Of:</span>
+                               </div>
+                              <div>
+                              
+                                <textarea name="complain[complainText]"></textarea>
+                              </div> 
+                              <div class="checkbox-area">
+                            <div>
+                                <span><input type="checkbox" value="Coughing" name="complain[symptoms][]">Coughing</span><br>
+                                <span><input type="checkbox" value="Sneezing" name="complain[symptoms][]">Sneezing</span><br>
+                                <span><input type="checkbox" value="Vomiting" name="complain[symptoms][]">Vomiting</span><br>
+                                <span><input type="checkbox" value="Bleeding" name="complain[symptoms][]">Bleeding</span><br>
+                                <span><input type="checkbox" value="Zawo" name="complain[symptoms][]">Zawo</span><br>
+                                <span>others: <input type="tel" placeholder="specify" name="complain[symptoms][]"></span>
+                            </div>
+                            <div>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">coughing</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Sneezing</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Vomiting</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Bleeding</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Zawo</span><br>
+                            </div>
+                            <div>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">coughing</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Sneezing</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Vomiting</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Bleeding</span><br>
+                                <span><input type="checkbox" value="true" name="complain[symptoms][]">Zawo</span><br>
+                               
+                            </div>
+                           
+                              </div>
+                            
+                        </div>
+                        <div class="medical-datas-section-four">
+                            <div>
+                                <span>Diagnosis: </span>
+                                <input type="text" name="diagnosis">
+                            </div>
+                        </div>
+                        <div class="medical-datas-section-four">
+                            <div class="lab">
+                                 <div class="lab-btn" title="Click to open lab form">Request Lab Form <span class="fa fa-flask"></span></div>
+                            </div>
+                            <div class="lab-reports">
+                               <span>Lab results should be displayed here...</span>
+                           </div>
+                           
+                        </div>
+                       
+                        <div class="medical-datas-section-four">
+                            <div>
+                                <span>Prescriptions: </span>
+                                <table class="receipt-table">
+                                    <thead>
+                                        <th>Medicine/Injection Names <span>*</span></th>
+                                        <th>Type <span>*</span></th>
+                                        <th>Unit</th>
+                                        <th>Prescriptions</th>
+                                        <th><span class="add-button fa fa-plus"></span></th>
+                                    </thead>
+                                    <tr> 
+                                    
+                                      
+                                        <td><input type="text" placeholder="drug/injection name" name="prescriptions[0][injectionOrDrugName]"></td>
+                                        <td><input type="text" placeholder="e.g Drug" name="prescriptions[0][type]"></td>
+                                        <td><input type="text" placeholder="e.g tablets" name="prescriptions[0][unit]"></td>
+                                        <td>
+                                            5/7 bi<input type="checkbox" value="5/7ml" name="prescriptions[0][prescriptions]">
+                                            cds 2/7<input type="checkbox" value="2/7ml" name="prescriptions[0][prescriptions]">
+                                            <input type="checkbox" value="5/7ml" >
+                                            <input type="checkbox" value="5/7ml" >
+                                            <input type="checkbox" value="5/7ml" >
+                                            <input type="checkbox" value="5/7ml" ><br>
+                                            <label for="Inpatient">Inpatient:</label>
+                                            <input type="radio" name="Inpatient" value="Yes"> Yes
+                                            <input type="radio" name="Inpatient" value="No"> No
+                                        </td>
+                                        <!-- <td><span class="add-button fa fa-plus add"></span></td> -->
+                                    </tr>
+                                   
+                                   
+                                </table>
+                            </div>
+                        </div>
+                       </div>
+                       <input type="hidden" name="name" value="<%= patient[0].firstName %> <%= patient[0].lastName %>">
+                       <input type="hidden" name="cardNumber" value="<%= patient[0].cardNumber %>">
+                       <button type="button" class="add-medical-history-btn" id="save">Save <span class="fa fa-save"></span></button>
+                       <button type="button" class="add-medical-history-btn submit" id="submit">Submit <span class="fa fa-arrow-circle-right"></span></button>
+                   </div>
+               </div>
+               <div class="medical-history-section">
+                   <% treatmentHistory.forEach( history => {%>
+                    <div class="medical-sub-sections">
+                        <div class="date-section">
+                            
+                            <span>Date: 12/10/2020</span>
+                        </div>
+                        <div class="vital-signs">
+                            <span>Vital Signs:</span><br>
+                            <span>Temp: <%= history.vitalSigns.temperature %></span>
+                            <span>Temp: <%= history.vitalSigns.pulse %></span>
+                            <span>Temp: <%= history.vitalSigns.resp %></span>
+                        </div>
+                        <div class="diagnosis">
+                            <span>Diagonosis: <span><%= history.diagnosis %></span></span>
+                        </div>
+                        
+                    </div>
+                    <div class="complaint-section">
+                        <div class="comp-head">
+                         <span>Complaint Of (C/O):</span><br>
+                        </div>
+                      <div class="complain-text">
+                         <text>
+                             <%= history.complain.complainText %>
+                         </text>
+                      </div>
+                      
+                    </div>
+                    <div class="prescriptions-section">
+                        <div>
+                     <div class="prescriptions-head">
+                         
+                        <span class="pres">Prescriptions</span>
+                        <a class="option-symbols" href="#">
+                         <span class="fa fa-pen symbol"></span>
+                         <span class="fa fa-trash symbol"></span>
+                        </a>
+                       
+                     </div>
+ 
+                        <div class="prescriptions-text">
+                            <span><%= history.prescriptions %></span><br>
+                        </div>
+                     </div>
+                     
+                    </div>
+                    <div class="lab-sections">
+                     <span>Lab Results: <span></span>
+                    </div>
+                    
+                </div>
+             <%})%>
+
+              <div role="tabpanel" aria-labelledby="add-bed" hidden="hidden">
+                 <h1> Coming soon!!!!!</h1>
+             </div>
+           </div>                
+                   
+        </div>
+          
+          <div class="modal-outer ">
+                                
+            <div class="modal-inner">
+               <div>
+                   
+                   <div class="header-modal">
+                    <span class="fa fa-flask"> Laboratory Form</span>
+                       <span class="close-btn-modal"><span class="fa fa-times"></span></span>
+                   </div>
+                   <div class="modal-body">
+                   <div>
+                          <label><input type="checkbox" class="checkbox-subject" value="haematology" name="lab[labRequest][]"> Haematology</label> 
+                          <div>
+                            <label><input type="checkbox" class="checkbox-subject" value="FBI" name="lab[labRequest][]"> FBI</label> 
+                          </div>
+                   </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/doctor/js/patient-profile.js"></script>
+    <script type="text/javascript" src="/doctor/js/modal.js"></script>
+   
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+.tabs{
+    display:grid;
+}
+[role ="tablist" ]{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+[ role="tabpanel"]{
+    background: #fff;
+    color: #3391ED;
+    padding-top: 2rem;
+    animation: fadeEffect 1.5s;
+}
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    t0 {opacity: 1;}
+}
+button{
+    background: transparent;
+    color: rgb(3, 45, 87);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    outline: 0;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid rgb(3, 45, 87);
+}
+button[aria-selected="true"]{
+    background: rgb(3, 45, 87);
+    color:#fff;
+}
+button:focus{
+    outline: 0;
+}
+
+table, th, td{
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    color:rgb(57, 57, 58);
+    /* width:100%; */
+    width:1020px;
+    
+}
+table th{
+    padding: 10px;
+    font-size: 15px;
+    text-align: left;
+    
+}
+table td{
+    padding: 7px;
+    font-size: 13px;
+}

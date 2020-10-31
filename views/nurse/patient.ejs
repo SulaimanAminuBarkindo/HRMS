@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../nurse/css/bed.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+    <div id="content">
+        <header>
+            <div>
+            <span><h2>HASKE NURSING HOME AND MATERNITY CENTER </h2></span>
+        </div>
+        <div>
+            <button class="logout-btn">Logout <i class="fa fa-share"></i></button>
+            <span class="fa fa-user doctor">&nbsp; Nurse Zainab</span>
+           
+        </div>
+           
+        </header>
+       <aside>
+          
+        <ul>
+            <center><img src="nurse.jpg" width="150px" height="150px"></center> 
+            <li><a href="nurse.html"><i class="fa fa-desktop">&nbsp; Dashboard</i></a></li>
+            <li><a href="bed-allocation.html"><i class="fa fa-bed">&nbsp; Bed Allocation</i></a></li>
+            <li><a href="patient.html" class="active"><i class="fa fa-users" >&nbsp; Patient</i></a></li>
+            <li><a href="#"><i class="fa fa-file">&nbsp; Report</i></a></li>
+           
+            <li><a href="#"><i class="fa fa-flask">&nbsp; Blood Bank</i></a></li>
+            <li><a href="#"><i class="fa fa-bell">&nbsp; Settings</i></a></li>
+           
+            <li><a href="profile.html"><i class="fa fa-user-circle">&nbsp; Profile</i></a></li>
+        </ul>
+        <div class="datee"><p id="date"></p></div>
+       </aside>
+      
+        <main>
+            <%- include('notificationBar') %>
+          <div class="tabs">
+                <div role="tablist" aria-label="bed-allocations" class="tabs-elements">
+                  <button role="tab" aria-selected="true" id="bed-list"><i class="fa fa-bars">&nbsp; View Patient List</i></button>
+                  <button role="tab" aria-selected="false" id="bed-allocation" disabled><i class="fa fa-cross">&nbsp; Add Patient</i></button>
+<!--                  <button role="tab" aria-selected="false" id="add-bed"><i class="fa fa-cross">&nbsp; Add Bed</i></button>-->
+
+                </div>
+               <div role="tabpanel" aria-labelledby="bed-list" class="tab-panel">
+                   <div class="search-sort-sections">
+              <div class="show-section">
+               <span>Show <input type="number" value="10"></span> 
+               <button>Excel</button>
+               <button>PDF</button>
+               <button>copy</button>
+
+              </div>
+              <div>
+
+              </div>
+              <div>
+                  <label>Search: </label><input type="search" id="searchPatient">
+              </div>
+
+          </div>
+              <table>
+                  <thead>
+                      <th>S/N</th>
+                      <th>CARD NUMBER</th>
+                      <th>PATIENT NAME</th>
+                      <th>GENDER</th>
+                      <th>AGE</th>
+                      <th>Account Opening</th>
+                      <th>Folder No.</th>
+                      <th ></th>
+                       <th></th>
+                      <th  class="edit-column"></th>
+                  </thead>
+                  <% patients.forEach(patient => { %> 
+                  <tr>
+                      <td>1</td>
+                      <td><%= patient.patientId %></td>
+                      <td><%= patient.firstName %></td>
+                      <td><%= patient.sex %></td>
+                      <td><%= patient.age %></td>
+                      <td><%= patient.createdAt %></td>
+                      <td><a href="patient-profile.html">
+                    <i class="fa fa-eye"></i></a></td>
+                      <td><i class="fa fa-edit"></i></td>
+                      <td><i class="fa fa-trash-alt"></i></td>
+                  </tr>
+                  <% }) %>   
+              </table>
+          </div>
+            <div role="tabpanel" aria-labelledby="bed-allocation" hidden="hidden">
+                <div>
+                <form class="form-section">
+                    <div>
+                        <h3>Personal Details</h3>
+                    <label>Card Number:</label><br>
+                    <input type="text" placeholder="Enter Card Number" value="2020/23453" disabled><br>
+                    <label>Patient Name:</label><br>
+                    <input type="text" placeholder="patient name here" value="MUHAMMAD NIBRAS" disabled><br>
+                    <label>Gender:</label><br>
+                    <input type="text" placeholder="Enter Gender here" value="MALE" disabled><br>
+                     <label>Telephone:</label><br>
+                    <input type="text" placeholder="Enter phone number here" value="08140409672" disabled><br>
+                    <label>Address:</label><br>
+                    <input type="text" placeholder="Enter Address  here" ><br>
+                    </div>
+                    <div>
+                         <h3>Allocation Details</h3>
+                     <label>Select Ward:<span style="color: red">*</span></label><br>
+                    <select>
+                         <option>Ward 1</option>
+                         <option>Ward 2</option>
+                         <option>Ward 3</option>
+                         <option>Ward 4</option>
+                         <option>Ward 5</option>
+                         <option>Ward 6</option>
+                         <option>Ward 7</option>
+                    </select><br>
+                     <label>Room Number: <span style="color: red">*</span></label><br>
+                    <select>
+                         <option>Ward 1</option>
+                         <option>Ward 2</option>
+                         <option>Ward 3</option>
+                         <option>Ward 4</option>
+                         <option>Ward 5</option>
+                         <option>Ward 6</option>
+                         <option>Ward 7</option>
+                    </select><br>
+                     <label>Bed Number: <span style="color: red">*</span></label><br>
+                    <select>
+                         <option>Ward 1</option>
+                         <option>Ward 2</option>
+                         <option>Ward 3</option>
+                         <option>Ward 4</option>
+                         <option>Ward 5</option>
+                         <option>Ward 6</option>
+                         <option>Ward 7</option>
+                    </select><br>
+                    <label>Allotment time: <span style="color: red">*</span></label><br>
+                    <input type="date"><br>
+                     <label>Discharge Time: <span style="color: red">*</span></label><br>
+                    <input type="date"><br>
+                        <input type="submit" value="Allocate" class="allocate-btn">
+                </div>
+                    <div>
+                         <h3>Allocation Details</h3>
+                     <label>Select Ward:<span style="color: red">*</span></label><br>
+                    <select>
+                         <option>Ward 1</option>
+                         <option>Ward 2</option>
+                         <option>Ward 3</option>
+                         <option>Ward 4</option>
+                         <option>Ward 5</option>
+                         <option>Ward 6</option>
+                         <option>Ward 7</option>
+                    </select><br>
+                     <label>Room Number: <span style="color: red">*</span></label><br>
+                    <select>
+                         <option>Ward 1</option>
+                         <option>Ward 2</option>
+                         <option>Ward 3</option>
+                         <option>Ward 4</option>
+                         <option>Ward 5</option>
+                         <option>Ward 6</option>
+                         <option>Ward 7</option>
+                    </select><br>
+                     <label>Bed Number: <span style="color: red">*</span></label><br>
+                    <select>
+                         <option>Ward 1</option>
+                         <option>Ward 2</option>
+                         <option>Ward 3</option>
+                         <option>Ward 4</option>
+                         <option>Ward 5</option>
+                         <option>Ward 6</option>
+                         <option>Ward 7</option>
+                    </select><br>
+                    <label>Allotment time: <span style="color: red">*</span></label><br>
+                    <input type="date"><br>
+                     <label>Discharge Time: <span style="color: red">*</span></label><br>
+                    <input type="date"><br>
+                        <input type="submit" value="Allocate" class="allocate-btn">
+                </div>
+                    </form>
+                </div>
+            </div>
+             <div role="tabpanel" aria-labelledby="add-bed" hidden="hidden">
+                <h1> Coming soon!!!!!</h1>
+            </div>
+          </div>
+
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script type="text/javascript" src="../nurse/js/patient.js"></script>
+    <script type="text/javascript" src="../nurse/js/bed.js"></script>
+</body>
+</html>

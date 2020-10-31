@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../doctor/css/dashboard.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+    <div id="content">
+        <header>
+            <div class="header-list">
+            <button class="header-list-item"><span class=" fa fa-plus"></span> New Treatment</button>
+            <button class="header-list-item"><span class="fa fa-file"></span> Records</button>
+            <button class="header-list-item"><span class="fa fa-envelope"> Messages</span></button>
+        </div>
+        <div class="search-area">
+            <div class="search-container">
+          <input type="search" class="search" placeholder="search activity"> &nbsp;<span class="fa fa-search"></span>
+        </div>
+        </div>
+        <div>
+            <div class="header-section-3">
+              
+               
+                <div class="fa fa-sun icon-3" title="Settings"></div>
+                <div class="fa fa-bell icon-3" title="All Notifications"></div>
+                <div class="drop-down">
+                    <div class="fa fa-user-circle icon-3 drop-btn">
+                        <div class="dropdown-content">
+                            <a href="profile.html"><span class="fa fa-user-circle"></span>&nbsp; &nbsp; Profile</a>
+                            <a href="profile.html"><span class="fa fa-lock"></span>&nbsp; &nbsp;Change Password</a>
+                            <a href="#"><span class="fa fa-key">&nbsp; &nbsp;Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        </header>
+       <aside>
+           
+        <ul>
+            
+            <center><img src="dr.jpg" width="80px" height="80px"><br>
+            <span class="doctor-user">DOCTOR MUBARAK</span><br><span class="fa fa-circle"> online</span></center>
+            <li><a href="dashboard.html" class="active"><span class="fa fa-desktop li-icons"></span><span class="li-list">Dashboard</span></a></li>
+            <li><a href="#"><span class="fa fa-industry li-icons"></span><span class="li-list">Department</span></a></li>
+            
+            <li><a href="patient"><span class="fa fa-users li-icons"></span><span class="li-list">Patient</span></a></li>
+            <li><a href="nurse.html"><span class="fa fa-user-md li-icons"></span><span class="li-list">Nurse</span></a></li>
+            <li><a href="#"><span class="fa fa-pills li-icons"></span><span class="li-list">Pharmacist</span></a></li>
+            <li><a href="#"><span class="fa fa-flask li-icons"></span><span class="li-list"> Laboratory</span></a></li>
+            <li><a href="#"><span class="fab fa-cc-visa li-icons"></span><span class="li-list">Accountant</span></a></li>
+            <li><a href="#"><span class="fa fa-bell li-icons"></span><span class="li-list">Settings</span></a></li>
+            <li><a href="profile.html"><span class="fa fa-user-circle li-icons"></span><span class="li-list">Profile</span></a></li>
+        </ul>
+        <div class="datee"><p id="date"></p></div> 
+       </aside>
+      
+        <main>
+            <%- include('notificationBar.ejs') %>
+           <div class="content-icons">
+               <center><span class="fa fa-user-md icon"></span><br>
+               <span class="icon-names">Doctor</span></center>
+           </div>
+           <div class="content-icons">
+            <center><span class="fa fa-syringe icon"></span><br>
+            <span class="icon-names">Nurse</span></center>
+        </div>
+        <div class="content-icons">
+            <center><span class="fa fa-pills icon"></span><br>
+            <span class="icon-names">Pharmacy</span></center>
+        </div>
+        <a href="patient.html"><div class="content-icons">
+            <center><span class="fa fa-users icon"></span><br>
+            <span class="icon-names">Patients</span></center>
+        </div></a>
+        <div class="content-icons">
+            <center><span class="fa fa-flask icon"></span><br>
+            <span class="icon-names">Laboratory</span></center>
+        </div>
+        <a href="receptionist-notifications"><div class="content-icons">
+         <center><span class="fa fa-hospital icon"></span><br>
+         <span class="icon-names">Reception</span></center>
+     </div></a>
+     <div class="content-icons">
+        <center><span class="fab fa-cc-visa icon"></span><br>
+        <span class="icon-names">Payment</span></center>
+    </div>
+    <div class="content-icons">
+     <center><span class="fa fa-bed icon"></span><br>
+     <span class="icon-names">Bed Space</span></center>
+ </div>
+ <div class="content-icons">
+    <center><span class="fa fa-book icon"></span><br>
+    <span class="icon-names">Note Books</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-ambulance icon"></span><br>
+    <span class="icon-names">Death Reports</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-child icon"></span><br>
+    <span class="icon-names">Births Report</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-smoking icon"></span><br>
+    <span class="icon-names">Diseases</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-save icon"></span><br>
+    <span class="icon-names">Back up</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-users icon"></span><br>
+    <span class="icon-names">Staffs</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-download icon"></span><br>
+    <span class="icon-names">Appointment</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-file icon"></span><br>
+    <span class="icon-names">Records</span></center>
+</div>
+<div class="content-icons">
+    <center><span class="fa fa-bell icon"></span><br>
+    <span class="icon-names">Settings</span></center>
+</div>
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+       
+        function displayTime(){
+              const refresh = 1000;
+              const mytime = setTimeout('display()', refresh)
+        }
+        function display(){
+            const date = new Date();
+            const dateFormat = date.toUTCString();
+            document.getElementById('date').innerHTML = dateFormat;
+            tt = displayTime();
+        }
+           
+        
+        </script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="module" src="/doctor/js/socket-config.js"></script>
+</body>
+</html>

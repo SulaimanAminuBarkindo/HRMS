@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../doctor/css/patient.css">
+    <title>Document</title>
+</head>
+
+<body onload="display();">
+  <%- include('partials/side-bar') %>
+    <div id="content">
+      <header>
+        <div class="header-list">
+        <button class="header-list-item"><span class=" fa fa-plus"></span> New Treatment</button>
+        <button class="header-list-item"><span class="fa fa-file"></span> Records</button>
+        <button class="header-list-item"><span class="fa fa-envelope"> Messages</span></button>
+    </div>
+    <div class="search-area">
+        <div class="search-container">
+      <input type="search" class="search" placeholder="search activity"> &nbsp;<span class="fa fa-search"></span>
+    </div>
+    </div>
+    <div>
+        <div class="header-section-3">
+          
+           
+            <div class="fa fa-sun icon-3" title="Settings"></div>
+            <div class="fa fa-bell icon-3" title="All Notifications"></div>
+            <div class="drop-down">
+                <div class="fa fa-user-circle icon-3 drop-btn">
+                    <div class="dropdown-content">
+                        <a href="profile.html"><span class="fa fa-user-circle"></span>&nbsp; &nbsp; Profile</a>
+                        <a href="profile.html"><span class="fa fa-lock"></span>&nbsp; &nbsp;Change Password</a>
+                        <a href="#"><span class="fa fa-key">&nbsp; &nbsp;Logout</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+    </header>      
+        <main>
+          <%- include('partials/notification-bar') %>
+            <div class="main-content">
+            <div class="subject-header">
+              <div class="subject-header-outer">
+                <div>
+                  <span class="fa fa-users">&nbsp; Manage Patients</span>
+                </div>
+                
+              </div>
+              
+            </div>
+          <div class="tabs">
+                <div role="tablist" aria-label="bed-allocations" class="tabs-elements">
+                  <button role="tab" aria-selected="true" id="bed-list"><i class="fa fa-bars"></i>&nbsp; View Patient List</button>
+                  <button role="tab" aria-selected="false" id="bed-allocation"><i class="fa fa-cross"></i>&nbsp; Add Patient</button>
+<!--                  <button role="tab" aria-selected="false" id="add-bed"><i class="fa fa-cross">&nbsp; Add Bed</i></button>-->
+
+                </div>
+               <div role="tabpanel" aria-labelledby="bed-list" >
+                   <div class="search-sort-sections">
+              <div class="show-section">
+                  <div class="sort-sec">
+               <span>Show 
+                  <select class="sort-select">
+                   <option>30</option>
+                    <option>100</option>
+                       <option>200</option>
+                       <option>500</option>
+                   </select><button class="sort-btn">sort <i class="fa fa-sort"></i></button>
+                  </span> </div>
+               <button>Excel</button>
+               <button>PDF</button>
+               <button>copy</button>
+
+              </div>
+              <div>
+
+              </div>
+              <div>
+                  <label>Search</label><input type="search" id="search">
+              </div>
+
+          </div>
+          <div class="table-size">
+              <table id="patients-list">
+                  <thead>
+                      <th>S/N</th>
+                      <th>CARD NUMBER</th>
+                      <th>PATIENT NAME</th>
+                      <th>GENDER</th>
+                      <th>AGE</th>
+                      <th>Account Opening</th>                     
+                      <th  class="edit-column" >Actions</th>
+                  </thead>
+                  <tbody>
+                  <% patients.forEach( (patient, index) => { %> 
+                  <tr>
+                      <td><%= index + 1 %></td>
+                      <td><%= patient.cardNumber %></td>
+                      <td><%= patient.firstName %> <%= patient.lastName %> <%= patient.middleName %></td>
+                      <td><%= patient.gender %></td>
+                      <td><%= patient.age %></td>
+                      <td><%= patient.accountType %></td>
+                      <td><a href="patient/update?id=<%= patient._id %>"><i class="fa fa-edit"></i></a></td>
+                      <td><a href="patient/delete?id=<%= patient._id %>" id="deleteBtn"><i class="fa fa-trash-alt"></i></a></td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+            <div role="tabpanel" aria-labelledby="bed-allocation" hidden="hidden">
+                <div>
+                    <div class="patient-header">
+                   <span  class=" fa fa-user patient-header-content">&nbsp; Patient Information</span>
+                    </div>
+                    <div>
+                <form name="form">
+                    <div class="form-section">
+                <div>
+                    <label>First Name:</label><br>
+                    <input type="text" placeholder="Enter First Name here" name="firstName" required><br>
+                    <label>Middle Name:</label><br>
+                    <input type="text" placeholder="Enter middle name" name="middleName"><br>
+                    
+                    <label>Last Name:</label><br>
+                    <input type="text" placeholder="Enter last name here" name="lastName" required><br>
+                    <label>Age:</label><br>
+                    <input type="text" placeholder="Enter Age" name="age" required><br>
+                    <label>Telephone:</label><br>
+                    <input type="text" placeholder="Enter phone number here" name="phoneNumber" required><br>
+                  </div>
+                 
+                    <div> 
+                      <label>Account Type:</label><br>
+                      <select name="accountType" required>
+                        <option value="#">Patient Account type</option>
+                         <option>Retainer</option>
+                         <option>Private</option>
+                         <option>FFS</option>
+                         <option>MAAYOIT</option>
+                         <option>ZENITH</option>
+                           <option>Fountain</option>
+                    </select><br> 
+                      <label>D. O .B:</label><br>
+                    <input type="date" placeholder="Enter first name here" name="dob" required><br>
+                   
+                     <label>Gender: <span style="color: red">*</span></label><br>
+                    <select name="gender" required>
+                         <option>Male</option>
+                         <option>Female</option>
+                    </select><br>
+                    <label>Address:</label><br>
+                    <input type="text" placeholder="e.g N0.12 Nyakore Road, Jimeta " name="address" required><br>
+                     
+                    
+                         <label>State: <span style="color: red">*</span></label><br>
+                    <select name="state" id="state" required>
+                        <option value="#">Select state</option>
+                         <option>Abia</option>
+                         <option>Adamawa</option>
+                         <option>Akwa Ibom</option>
+                         <option>Anambra</option>
+                         <option>Benue</option>
+                    </select><br>
+                      
+                    <label>LGA: <span style="color: red">*</span></label><br>
+                    <select name="lga" id="lga" required>
+                         <option value="#">Select LGA</option>
+                    </select><br>  
+                    
+                </div>
+                    <div>
+                        
+                    
+                    
+                </div>
+                    <div>
+                      
+                    </div>
+                        </div>
+                    <input type="submit" value="Add Patient" id="addPatient">
+                    </form>
+                  </div>
+                </div>
+            </div>
+             <div role="tabpanel" aria-labelledby="add-bed" hidden="hidden">
+                <h1> Coming soon!!!!!</h1>
+            </div>
+          </div>
+        </div>
+
+
+        </main>
+        <footer>
+            <div>
+                <span>©2020 HRMS All Rights Reserved</span><br>
+                <span class="footer-contents">Powered By AIS</span>
+            </div>
+        </footer>
+
+    </div>
+    <script type="text/javascript" src="../receptionist/js/patient.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMMS</title>
+    <link rel="stylesheet" href="../receptionist/css/dashbaord.css">
+    <link rel="stylesheet" href="../receptionist/css/header.css">
+    <link rel="stylesheet" type="text/css"
+    href="../fontawesome-free-5.12.0-web/css/all.css">
+    
+</head>
+<body onload="display();">
+ <!-- Side Bar Begins Here -->
+ <%- include('partials/side-bar') %>
+ <!-- End of side Bar -->
+<!-- Header begins here -->
+<header>
+<div class="search">
+    <h2 class="h2">Haske Clinic And Merternity Management systems</h2>
+</div>
+<div class="user">
+    <!-- <a href="" class="notify">
+        <i class="fa fa-bell bell" ></i>
+        <span class="round">3</span>
+    </a> -->
+    <a href="">
+        <span id='name'style="display: inline-block; padding-right: 8px; font-weight:
+     bold; color: rgb(3, 45, 87);">Dorathy</span>
+        <div class="userProfile"></div>
+        <i class="fa fa-caret-down"></i>
+    </a>
+
+</div>
+</header>
+<!-- header ends here -->
+<!-- Main start here-->
+<section class="mainSection">
+    <%- include('partials/notification-bar') %>
+    <p id="name" style="padding-top:20px; font-size: 18px; color:rgb(209, 209, 209);">Welcome Mrs Dorathy </p>
+ <div class="cardHolder">
+        <div class="card">
+            <div class="iconss">
+                <a href=""><i class="fa fa-users icon"></i></a>
+            </div>
+            <a href="/receptionist/patient">
+            <div class="div">
+                <h1> Patients </h1>
+                <!-- <p class="p">Total Patient <span style="float: right; font-size: 40px;">20</span> </p> -->
+                <div style="margin-top: 5px; color: rgb(3, 45, 87); font-weight: bold;">
+                <h1 style="font-size: 40px;"><%= patients %></h1>
+                <span>Total Patient</span>
+            </div>
+            </div>
+            </a>
+        </div>
+        <div class="card">
+            <div class="icons">
+                <a href=""><i class="fa fa-book icon"></i></a>
+            </div>
+            <h1>Documents</h1>
+        </div>
+        <div class="card">
+            <div class="iconss1">
+                <a href=""><i class="fa fa-calendar icon"></i></a>
+            </div>
+            <a href="/receptionist/appointment">
+            <div class="div1">
+                <h1> Appointments Today</h1>
+                <!-- <p class="p">Total Patient <span style="float: right; font-size: 40px;">20</span> </p> -->
+                <div style="margin-top: 5px; color: rgb(3, 45, 87); font-weight: bold;">
+                <h1 style="font-size: 40px;"><%= acceptedAppointments %></h1>
+                <span>Total Appointment</span>
+            </div>
+            </div>
+        </div>
+        </a>
+        <div class="card">
+            <div class="iconss">
+                <a href=""><i class="fa fa-user-md icon"></i></a>
+            </div>
+            <div class="div">
+                <h1> Doctors</h1>
+                <!-- <p class="p">Total Patient <span style="float: right; font-size: 40px;">20</span> </p> -->
+                <div style="margin-top: 5px; color: rgb(3, 45, 87); font-weight: bold;">
+                <h1 style="font-size: 40px;">20</h1>
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icons">
+                <a href=""><i class="fa fa-credit-card icon"></i></a>
+            </div>
+            <h1>Payment Invoice</h1>
+            <!-- <h1>Manage Patient</h1>
+            <p class="p">Tolal Number Of Patient <span style="float: right;">20</span> </p> -->
+        </div>
+        <div class="card">
+            <div class="iconss1">
+                <a href=""><i class="fa fa-calendar icon"></i></a>
+            </div>
+            <div class="div1">
+                <h1>Zainabu</h1>
+                <!-- <p class="p">Total Patient <span style="float: right; font-size: 40px;">20</span> </p> -->
+                <div style="margin-top: 5px; color: rgb(3, 45, 87); font-weight: bold;">
+                <h1 style="font-size: 40px;">30</h1>
+                <span>Total Lovers</span>
+            </div>
+            </div>
+        </div>
+ </div>
+</section>
+<div style="position: fixed; bottom: 0; background: #fff; margin-left: 250px;
+padding: 15px; color:#3391ED;width: 100%; font-size: 12px;"><p>©2020 
+ HCMMS All Rights Reserved
+    Prouldly Powered By AIS</p></div>
+    
+<!-- section Ends here -->
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io.connect('http://localhost:3000');
+    // document.getElementById('date').innerHTML =  Date();
+    // document.querySelector('#name').innerHTML =  'Dorathy';
+    function displayTime(){
+          const refresh = 1000;
+          const mytime = setTimeout('display()', refresh)
+    }
+    function display(){
+        const date = new Date();
+        const dateFormat = date.toUTCString();
+        document.getElementById('date').innerHTML = dateFormat;
+        tt = displayTime();
+    }
+        // const date = new Date();
+        // const dateFormat = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+        // dateFormats = dateFormat  + " Time is " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        // document.getElementById('date').innerHTML = dateFormats;
+        // displayTime();
+    
+    </script>
+</html>
